@@ -7,11 +7,11 @@ namespace Kikelet_Panzió
 {
     public class Room
     {
-        private int roomNumber;
-        private int accommodation;
-        private int price;
-        private int roomId;
-        private bool aviable;
+        //Egy szoba adatai
+        public int roomNumber { get; } //Szoba száma == azonosító
+        public int accommodation { get; }  //Férőhelyek száma
+        public int price { get; }
+        public bool aviable { get; set; }
 
         public Room()
         {
