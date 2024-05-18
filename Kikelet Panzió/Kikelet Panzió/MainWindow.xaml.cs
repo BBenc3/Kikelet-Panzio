@@ -15,8 +15,13 @@ namespace Kikelet_Panzió
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     /// 
+
     public partial class MainWindow : Window
     {
+        internal static List<Room> rooms = new List<Room>();
+        internal static List<RegisteredGuest> guests = new List<RegisteredGuest>();
+        internal static List<Reservation> reservations = new List<Reservation>();
+
         public MainWindow()
         {
             InitializeComponent();

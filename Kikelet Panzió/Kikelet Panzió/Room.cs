@@ -13,9 +13,12 @@ namespace Kikelet_Panzió
         public int price { get; }
         public bool aviable { get; set; }
 
-        public Room()
+        public Room(int roomNumber, int accommodation, int price, bool aviable)
         {
-            throw new System.NotImplementedException();
+            this.roomNumber = roomNumber;
+            this.accommodation = accommodation;
+            this.price = price;
+            this.aviable = aviable;
         }
     }
 }

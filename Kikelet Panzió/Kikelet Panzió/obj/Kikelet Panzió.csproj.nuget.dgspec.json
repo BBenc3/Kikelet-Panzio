@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bence\\Documents\\GitHub\\Kikelet-Panzio\\Kikelet Panzió\\Kikelet Panzió\\Kikelet Panzió.csproj": {}
+    "C:\\Users\\bence\\Documents\\Kikelet-Panzio\\Kikelet Panzió\\Kikelet Panzió\\Kikelet Panzió.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bence\\Documents\\GitHub\\Kikelet-Panzio\\Kikelet Panzió\\Kikelet Panzió\\Kikelet Panzió.csproj": {
+    "C:\\Users\\bence\\Documents\\Kikelet-Panzio\\Kikelet Panzió\\Kikelet Panzió\\Kikelet Panzió.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bence\\Documents\\GitHub\\Kikelet-Panzio\\Kikelet Panzió\\Kikelet Panzió\\Kikelet Panzió.csproj",
+        "projectUniqueName": "C:\\Users\\bence\\Documents\\Kikelet-Panzio\\Kikelet Panzió\\Kikelet Panzió\\Kikelet Panzió.csproj",
         "projectName": "Kikelet Panzió",
-        "projectPath": "C:\\Users\\bence\\Documents\\GitHub\\Kikelet-Panzio\\Kikelet Panzió\\Kikelet Panzió\\Kikelet Panzió.csproj",
+        "projectPath": "C:\\Users\\bence\\Documents\\Kikelet-Panzio\\Kikelet Panzió\\Kikelet Panzió\\Kikelet Panzió.csproj",
         "packagesPath": "C:\\Users\\bence\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bence\\Documents\\GitHub\\Kikelet-Panzio\\Kikelet Panzió\\Kikelet Panzió\\obj\\",
+        "outputPath": "C:\\Users\\bence\\Documents\\Kikelet-Panzio\\Kikelet Panzió\\Kikelet Panzió\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\bence\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -63,7 +63,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300-preview.24203.14/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
