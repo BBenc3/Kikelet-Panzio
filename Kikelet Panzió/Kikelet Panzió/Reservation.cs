@@ -13,8 +13,8 @@ namespace Kikelet_Panzió
         public DateTime checkedOut { get; set; } //Mikor ment el
         public int stayed { get; set; } //Hány éjszakát maradt, származtatott adat
         public int roomNumber { get; set; } //Melyik szobában
-        public string guestId { get; set; } //Melyik vendég
         public RegisteredGuest guest { get; set; }
+        public string guestId { get; set; } //Melyik vendég
         public Room room { get; set; }
         public double total { get; set; }
         public DateTime dateOfReservation { get; } //Melyik napon foglalt

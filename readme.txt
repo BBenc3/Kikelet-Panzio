@@ -5,7 +5,12 @@ closed - the guest checked out
 reserved - active reservation
 deleted - the guest cancelled
 
+A szoba elérhető, ha kiválasztott firstReservedDay és a lastReservedDay intervallumban nincs foglalás aminek a státusza reserved
+
+
+//Statisztika
 Az időszakos szűrésnél vizsgálni kell a foglalás kicsekkolás időpontja benne van-e a szűrt intervallumban, majd azoknak a foglalásoknak a végössszegét össszeadni
+
 
 CREATE TABLE RegisteredGuest(
  	guestId int PRIMARY KEY AUTO_INCREMENT,

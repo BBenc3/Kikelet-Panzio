@@ -8,17 +8,18 @@ namespace Kikelet_Panzió
     public class Room
     {
         //Egy szoba adatai
-        public int roomNumber { get; } //Szoba száma == azonosító
+        public int roomId { get; }
+        public int roomNumber { get; }
         public int accommodation { get; }  //Férőhelyek száma
         public int price { get; }
-        public bool aviable { get; set; }
 
-        public Room(int roomNumber, int accommodation, int price, bool aviable)
+        public Room(int roomId, int roomNumber, int accommodation, int price)
         {
+            this.roomId = roomId;
             this.roomNumber = roomNumber;
             this.accommodation = accommodation;
             this.price = price;
-            this.aviable = aviable;
         }
+
     }
 }

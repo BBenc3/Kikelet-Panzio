@@ -1,0 +1,81 @@
+DROP DATABASE if EXISTS KIKELETPANZIO;
+
+CREATE DATABASE KIKELETPANZIO;
+
+USE KIKELETPANZIO;
+
+CREATE TABLE RegisteredGuest(
+ 	guestId int PRIMARY KEY AUTO_INCREMENT,
+    guestCode varchar(50) not null,
+	registrationDate datetime DEFAULT CURRENT_DATE,
+	guestName varchar(100) not null,
+	birthDay date not null,
+	country varchar(50) not null,
+	postalCode varchar(10) not null,
+	city varchar(100) NOT null,
+	address varchar(200) not null,
+	email varchar(100) UNIQUE DEFAULT null,
+	vip boolean DEFAULT false,
+	banned boolean DEFAULT false
+);
+
+CREATE TABLE Room(
+	roomId int PRIMARY KEY AUTO_INCREMENT,
+	roomNumber varchar(10) not null,
+ 	accommodation int not null,
+ 	price int not null
+);
+
+CREATE TABLE Reservation(
+	 reservationId INT PRIMARY KEY AUTO_INCREMENT,
+	 checkedIn datetime DEFAULT null,
+	 checkedOut datetime DEFAULT null,
+	 guestId int not null, 
+	 roomId int not null,
+	 dateOfReservation datetime DEFAULT CURRENT_TIMESTAMP,
+	 firstReservedDay date not null,
+	 lastReservedDay date not null,
+     reservationStatust varchar(20) DEFAULT "reserved",
+	 FOREIGN KEY (guestId) REFERENCES RegisteredGuest(guestId),
+	 FOREIGN KEY (roomId) REFERENCES Room(roomId)
+ );
+ 
+ INSERT INTO Room(roomNumber, accommodation, price)
+ VALUES("1", 2, 6000);
+ 
+  INSERT INTO Room(roomNumber, accommodation, price)
+ VALUES("2", 3, 9000);
+ 
+  INSERT INTO Room(roomNumber, accommodation, price)
+ VALUES("3", 2, 6000);
+ 
+  INSERT INTO Room(roomNumber, accommodation, price)
+ VALUES("4", 4, 12000);
+ 
+  INSERT INTO Room(roomNumber, accommodation, price)
+ VALUES("5", 3, 9000);
+ 
+   INSERT INTO Room(roomNumber, accommodation, price)
+ VALUES("6", 2, 6000);
+ 
+   INSERT INTO RegisteredGuest(guestCode, guestName, birthDay, country, postalCode, city, address, email, vip )
+ VALUES("KissJános20240518","Kiss János", "1999-03-02", "Magyarország", "1345", "BudaPest", "Szent István út 2", null, false);
+ 
+    INSERT INTO RegisteredGuest(guestCode, guestName, birthDay, country, postalCode, city, address, email, vip )
+ VALUES("NagyAlexandra20240518","Nagy Alexandra", "2000-02-14", "Magyarország", "3543", "Hatvan", "Petőfi Sándor út 5", "AlexaN@hotmail.com", true);
+ 
+    INSERT INTO RegisteredGuest(guestCode, guestName, birthDay, country, postalCode, city, address, email, vip )
+ VALUES("UrbanTamas20240518","Urbán Tamás", "2000-05-20", "Magyarország", "9685", "Szentendre", "Hatvani utca 14", null, false);
+ 
+ 
+ INSERT INTO Reservation(guestId, roomId, firstReservedDay, lastReservedDay)
+ VALUES(1, 2, "2024-06-20", "2024-06-25");
+ 
+  INSERT INTO Reservation(guestId, roomId, firstReservedDay, lastReservedDay)
+ VALUES(2, 5, "2024-05-25", "2024-05-27");
+ 
+INSERT INTO Reservation(guestId, roomId, firstReservedDay, lastReservedDay, reservationStatust, checkedIn, checkedOut)
+ VALUES(1, 2, "2024-02-28", "2024-03-2", "closed", "2024-02-28", "2024-03-2");
+ 
+ INSERT INTO Reservation(guestId, roomId, firstReservedDay, lastReservedDay, reservationStatust)
+ VALUES(1, 2, "2024-04-05", "2024-04-06", "deleted");

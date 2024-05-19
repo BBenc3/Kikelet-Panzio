@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2024. Máj 18. 12:03
+-- Létrehozás ideje: 2024. Máj 18. 14:41
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `registeredguest` (
   `guestId` int(11) NOT NULL,
   `guestCode` varchar(50) NOT NULL,
-  `registrationDate` datetime DEFAULT curdate(),
+  `registrationDate` datetime DEFAULT current_timestamp(),
   `guestName` varchar(100) NOT NULL,
   `birthDay` date NOT NULL,
   `country` varchar(50) NOT NULL,
@@ -47,9 +47,9 @@ CREATE TABLE `registeredguest` (
 --
 
 INSERT INTO `registeredguest` (`guestId`, `guestCode`, `registrationDate`, `guestName`, `birthDay`, `country`, `postalCode`, `city`, `address`, `email`, `vip`, `banned`) VALUES
-(1, 'KissJános20240518', '2024-05-18 00:00:00', 'Kiss János', '1999-03-02', 'Magyarország', '1345', 'BudaPest', 'Szent István út 2', NULL, 0, 0),
-(2, 'NagyAlexandra20240518', '2024-05-18 00:00:00', 'Nagy Alexandra', '2000-02-14', 'Magyarország', '3543', 'Hatvan', 'Petőfi Sándor út 5', 'AlexaN@hotmail.com', 1, 0),
-(3, 'UrbanTamas20240518', '2024-05-18 00:00:00', 'Urbán Tamás', '2000-05-20', 'Magyarország', '9685', 'Szentendre', 'HAtvani utca 14', NULL, 0, 0);
+(1, 'KissJános20240518', '2024-05-18 14:40:35', 'Kiss János', '1999-03-02', 'Magyarország', '1345', 'BudaPest', 'Szent István út 2', NULL, 0, 0),
+(2, 'NagyAlexandra20240518', '2024-05-18 14:40:35', 'Nagy Alexandra', '2000-02-14', 'Magyarország', '3543', 'Hatvan', 'Petőfi Sándor út 5', 'AlexaN@hotmail.com', 1, 0),
+(3, 'UrbanTamas20240518', '2024-05-18 14:40:35', 'Urbán Tamás', '2000-05-20', 'Magyarország', '9685', 'Szentendre', 'Hatvani utca 14', NULL, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -74,10 +74,10 @@ CREATE TABLE `reservation` (
 --
 
 INSERT INTO `reservation` (`reservationId`, `checkedIn`, `checkedOut`, `guestId`, `roomId`, `dateOfReservation`, `firstReservedDay`, `lastReservedDay`, `reservationStatust`) VALUES
-(1, NULL, NULL, 1, 2, '2024-05-18 12:01:53', '2024-06-20', '2024-06-25', 'reserved'),
-(2, NULL, NULL, 2, 5, '2024-05-18 12:01:53', '2024-05-25', '2024-05-27', 'reserved'),
-(3, '2024-02-28 00:00:00', '2024-03-02 00:00:00', 1, 2, '2024-05-18 12:01:53', '2024-02-28', '2024-03-02', 'closed'),
-(4, NULL, NULL, 1, 2, '2024-05-18 12:01:53', '2024-04-05', '2024-04-06', 'deleted');
+(1, NULL, NULL, 1, 2, '2024-05-18 14:40:35', '2024-06-20', '2024-06-25', 'reserved'),
+(2, NULL, NULL, 2, 5, '2024-05-18 14:40:35', '2024-05-25', '2024-05-27', 'reserved'),
+(3, '2024-02-28 00:00:00', '2024-03-02 00:00:00', 1, 2, '2024-05-18 14:40:35', '2024-02-28', '2024-03-02', 'closed'),
+(4, NULL, NULL, 1, 2, '2024-05-18 14:40:35', '2024-04-05', '2024-04-06', 'deleted');
 
 -- --------------------------------------------------------
 
