@@ -7,6 +7,18 @@ deleted - the guest cancelled
 
 A szoba elérhető, ha kiválasztott firstReservedDay és a lastReservedDay intervallumban nincs foglalás aminek a státusza reserved
 
+//Meglévő adatok lekéréde
+1. Adatok lekerese adatbázisbol
+2. Objektum létrehozása
+3. Objektum listához adása
+
+//Új adat
+1. Inputbezők értékének kiolvasása
+2. guestCode generálás (vagy egyéb származtatott mezők kiszámítása)
+3. Elküldeni az adatbazisnak
+4. Utolsó adat beazonosítása
+5. Utolsonak hozzádott adat lekérése
+6. Az új adat hozzáadása a listához
 
 //Statisztika
 Az időszakos szűrésnél vizsgálni kell a foglalás kicsekkolás időpontja benne van-e a szűrt intervallumban, majd azoknak a foglalásoknak a végössszegét össszeadni
