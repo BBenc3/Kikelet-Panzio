@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using MySqlConnector;
 
 namespace Kikelet_Panzió
 {
@@ -43,10 +45,10 @@ namespace Kikelet_Panzió
         #endregion
 
 
-        public RegisteredGuest(string guestCode, DateTime registrationDate, string guestName, DateTime birthDay, string country, string postalCode, string city, string address, string email, bool vip, bool banned)
+        //A konstruktor paramétereit közvetlenül el kell küldeni az adatbnek (kidolgozni)
+        public RegisteredGuest(string guestCode, string guestName, DateTime birthDay, string country, string postalCode, string city, string address, string email, bool vip, bool banned)
         {
             this.guestCode = guestName + registrationDate.ToString("yyyyMMdd"); ;
-            this.registrationDate = DateTime.Now;
             this.guestName = guestName;
             this.birthDay = birthDay;
             this.country = country;
@@ -58,4 +60,5 @@ namespace Kikelet_Panzió
         }
 
     }
+
 }
