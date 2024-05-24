@@ -10,7 +10,6 @@ namespace Kikelet_Panzió
     public class RegisteredGuest
     {
         //Egy regissztrált felhasználó adatai
-
         public int guestId { get; } //A felhassználó nevéből és regisztráció dátumából generálódik
         public string guestCode { get; }
         public DateTime registrationDate { get; }
@@ -23,27 +22,25 @@ namespace Kikelet_Panzió
         public string email { get; set; }
         public bool vip { get; set; }
         public bool canBeVip { get; } //Abban az esetben igaz, ha a felhasználó e-mailcíme be van állítva
-        public bool banned { get; set; } //A felhaszbáló inaktív megszünnek ha az érték igaz
+        public bool banned { get; set; } //A felhasználó inaktív megszűnnek ha az érték igaz
 
-        #region For database
+        //For database
         public RegisteredGuest(MySqlDataReader rdr)
         {
             this.guestId = (int)rdr[0];
             this.guestCode = (string)rdr[1];
-            this.registrationDate = (DateTime)rdr[3];
-            this.guestName = (string)rdr[4];
-            this.birthDay = (DateTime)rdr[5];
-            this.country = (string)rdr[6];
-            this.postalCode = (string)rdr[7];
-            this.city = (string)rdr[8];
-            this.address = (string)rdr[9];
-            this.email = (string)rdr[10];
-            this.vip = (bool)rdr[11];
+            this.registrationDate = (DateTime)rdr[2];
+            this.guestName = (string)rdr[3];
+            this.birthDay = (DateTime)rdr[4];
+            this.country = (string)rdr[5];
+            this.postalCode = (string)rdr[6];
+            this.city = (string)rdr[7];
+            this.address = (string)rdr[8];
+            this.email = rdr[9] != DBNull.Value ? (string)rdr[9] : "";
+            this.vip = (bool)rdr[10];
             this.canBeVip = email != null;
-            this.banned = (bool)rdr[12];
+            this.banned = (bool)rdr[11];
         }
-        #endregion
-
 
         //A konstruktor paramétereit közvetlenül el kell küldeni az adatbnek (kidolgozni)
         public RegisteredGuest(string guestCode, string guestName, DateTime birthDay, string country, string postalCode, string city, string address, string email, bool vip, bool banned)

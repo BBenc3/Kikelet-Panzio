@@ -1,0 +1,31 @@
+C:\Users\bence\Documents\Kikelet-Panzio\Kikelet Panzió\Kikelet Panzió\obj\Debug\net8.0-windows\Kikelet Panzió.csproj.AssemblyReference.cache
+C:\Users\bence\Documents\Kikelet-Panzio\Kikelet Panzió\Kikelet Panzió\obj\Debug\net8.0-windows\MainWindow.g.cs
+C:\Users\bence\Documents\Kikelet-Panzio\Kikelet Panzió\Kikelet Panzió\obj\Debug\net8.0-windows\App.g.cs
+C:\Users\bence\Documents\Kikelet-Panzio\Kikelet Panzió\Kikelet Panzió\obj\Debug\net8.0-windows\Kikelet Panzió_MarkupCompile.cache
+C:\Users\bence\Documents\Kikelet-Panzio\Kikelet Panzió\Kikelet Panzió\obj\Debug\net8.0-windows\Kikelet Panzió_MarkupCompile.lref
+C:\Users\bence\Documents\Kikelet-Panzio\Kikelet Panzió\Kikelet Panzió\bin\Debug\net8.0-windows\Kikelet Panzió.exe
+C:\Users\bence\Documents\Kikelet-Panzio\Kikelet Panzió\Kikelet Panzió\bin\Debug\net8.0-windows\Kikelet Panzió.deps.json
+C:\Users\bence\Documents\Kikelet-Panzio\Kikelet Panzió\Kikelet Panzió\bin\Debug\net8.0-windows\Kikelet Panzió.runtimeconfig.json
+C:\Users\bence\Documents\Kikelet-Panzio\Kikelet Panzió\Kikelet Panzió\bin\Debug\net8.0-windows\Kikelet Panzió.dll
+C:\Users\bence\Documents\Kikelet-Panzio\Kikelet Panzió\Kikelet Panzió\bin\Debug\net8.0-windows\Kikelet Panzió.pdb
+C:\Users\bence\Documents\Kikelet-Panzio\Kikelet Panzió\Kikelet Panzió\bin\Debug\net8.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\bence\Documents\Kikelet-Panzio\Kikelet Panzió\Kikelet Panzió\bin\Debug\net8.0-windows\MySqlConnector.dll
+C:\Users\bence\Documents\Kikelet-Panzio\Kikelet Panzió\Kikelet Panzió\bin\Debug\net8.0-windows\System.Data.SqlClient.dll
+C:\Users\bence\Documents\Kikelet-Panzio\Kikelet Panzió\Kikelet Panzió\bin\Debug\net8.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\bence\Documents\Kikelet-Panzio\Kikelet Panzió\Kikelet Panzió\bin\Debug\net8.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\bence\Documents\Kikelet-Panzio\Kikelet Panzió\Kikelet Panzió\bin\Debug\net8.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\bence\Documents\Kikelet-Panzio\Kikelet Panzió\Kikelet Panzió\bin\Debug\net8.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\bence\Documents\Kikelet-Panzio\Kikelet Panzió\Kikelet Panzió\bin\Debug\net8.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\bence\Documents\Kikelet-Panzio\Kikelet Panzió\Kikelet Panzió\obj\Debug\net8.0-windows\MainWindow.baml
+C:\Users\bence\Documents\Kikelet-Panzio\Kikelet Panzió\Kikelet Panzió\obj\Debug\net8.0-windows\Kikelet Panzió.g.resources
+C:\Users\bence\Documents\Kikelet-Panzio\Kikelet Panzió\Kikelet Panzió\obj\Debug\net8.0-windows\Kikelet Panzió.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bence\Documents\Kikelet-Panzio\Kikelet Panzió\Kikelet Panzió\obj\Debug\net8.0-windows\Kikelet Panzió.AssemblyInfoInputs.cache
+C:\Users\bence\Documents\Kikelet-Panzio\Kikelet Panzió\Kikelet Panzió\obj\Debug\net8.0-windows\Kikelet Panzió.AssemblyInfo.cs
+C:\Users\bence\Documents\Kikelet-Panzio\Kikelet Panzió\Kikelet Panzió\obj\Debug\net8.0-windows\Kikelet Panzió.csproj.CoreCompileInputs.cache
+C:\Users\bence\Documents\Kikelet-Panzio\Kikelet Panzió\Kikelet Panzió\obj\Debug\net8.0-windows\Kikelet Panzió.sourcelink.json
+C:\Users\bence\Documents\Kikelet-Panzio\Kikelet Panzió\Kikelet Panzió\obj\Debug\net8.0-windows\Kikelet .75824443.Up2Date
+C:\Users\bence\Documents\Kikelet-Panzio\Kikelet Panzió\Kikelet Panzió\obj\Debug\net8.0-windows\Kikelet Panzió.dll
+C:\Users\bence\Documents\Kikelet-Panzio\Kikelet Panzió\Kikelet Panzió\obj\Debug\net8.0-windows\refint\Kikelet Panzió.dll
+C:\Users\bence\Documents\Kikelet-Panzio\Kikelet Panzió\Kikelet Panzió\obj\Debug\net8.0-windows\Kikelet Panzió.pdb
+C:\Users\bence\Documents\Kikelet-Panzio\Kikelet Panzió\Kikelet Panzió\obj\Debug\net8.0-windows\Kikelet Panzió.genruntimeconfig.cache
+C:\Users\bence\Documents\Kikelet-Panzio\Kikelet Panzió\Kikelet Panzió\obj\Debug\net8.0-windows\ref\Kikelet Panzió.dll

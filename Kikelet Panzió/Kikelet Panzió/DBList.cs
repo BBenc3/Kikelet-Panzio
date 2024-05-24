@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Documents;
 using System.Data.SqlClient;
 using MySqlConnector;
+using System.Collections.ObjectModel;
 
 namespace Kikelet_Panzió
 {
@@ -13,7 +14,7 @@ namespace Kikelet_Panzió
     {
         internal string username { get; set; }
         internal string password { get; set; }
-        public List<Object> list { get; }
+        public ObservableCollection<Object> list { get; }
         protected string database;
         protected string table;
         protected string conString;
@@ -32,7 +33,7 @@ namespace Kikelet_Panzió
             this.password = password;
             //Az inheritance miatt a table értéke a leszármazott osztály konstruktorában kerül beállításra
             this.database = database;
-            list = new List<Object>();
+            list = new ObservableCollection<Object>();
             conString = $"Server=localhost;Database={database};Uid={username};Pwd={password};";
         }
 

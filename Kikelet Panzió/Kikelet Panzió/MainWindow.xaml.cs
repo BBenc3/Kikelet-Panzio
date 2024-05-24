@@ -21,13 +21,20 @@ namespace Kikelet_Panzió
 
     public partial class MainWindow : Window
     {
-        internal static ObservableCollection<Room> rooms = new ObservableCollection<Room>();
-        internal static ObservableCollection<RegisteredGuest> guests = new ObservableCollection<RegisteredGuest>();
-        internal static ObservableCollection<Reservation> reservations = new ObservableCollection<Reservation>();
+        internal static RegisteredGuestList registeredGuestList = new RegisteredGuestList("kikeletpanzio", "root", "");
+        internal static RoomList roomList = new RoomList("kikeletpanzio", "root", "");
+        internal static ReservationList reservationList = new ReservationList("kikeletpanzio", "root", "");
 
         public MainWindow()
         {
             InitializeComponent();
+            registeredGuestList.LoadFromDB();
+            dgvalami.ItemsSource = registeredGuestList.list;
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            registeredGuestList.InsertToDB();
         }
     }
 }
