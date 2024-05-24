@@ -37,6 +37,8 @@ CREATE TABLE RegisteredGuest(
 	email varchar(100) UNIQUE DEFAULT null,
 	vip boolean DEFAULT false,
 	banned boolean DEFAULT false
+
+	
 );
 
 Room(
@@ -44,7 +46,8 @@ Room(
 	roomNumber varchar(10) not null,
  	accommodation int not null,
  	price int not null
-);
+
+	ToString(""roomNumber", accommodation, price");
 
 Reservation(
 	 reservationId INT PRIMARY KEY AUTO_INCREMENT,
@@ -56,6 +59,7 @@ Reservation(
 	 firstReservedDay date not null,
 	 lastReservedDay date not null,
      	 reservationStatust varchar(20) DEFAULT "reserved",
+
 	 FOREIGN KEY (guestId) REFERENCES RegisteredGuest(guestId),
 	 FOREIGN KEY (roomId) REFERENCES Room(roomId)
  );

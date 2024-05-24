@@ -26,21 +26,21 @@ namespace Kikelet_Panzió
         public bool banned { get; set; } //A felhaszbáló inaktív megszünnek ha az érték igaz
 
         #region For database
-        public RegisteredGuest(int guestId, string guestCode, DateTime registrationDate, string guestName, DateTime birthDay, string country, string postalCode, string city, string address, string email, bool vip, bool banned)
+        public RegisteredGuest(MySqlDataReader rdr)
         {
-            this.guestId = guestId;
-            this.guestCode = guestCode;
-            this.registrationDate = registrationDate;
-            this.guestName = guestName;
-            this.birthDay = birthDay;
-            this.country = country;
-            this.postalCode = postalCode;
-            this.city = city;
-            this.address = address;
-            this.email = email;
-            this.vip = vip;
+            this.guestId = (int)rdr[0];
+            this.guestCode = (string)rdr[1];
+            this.registrationDate = (DateTime)rdr[3];
+            this.guestName = (string)rdr[4];
+            this.birthDay = (DateTime)rdr[5];
+            this.country = (string)rdr[6];
+            this.postalCode = (string)rdr[7];
+            this.city = (string)rdr[8];
+            this.address = (string)rdr[9];
+            this.email = (string)rdr[10];
+            this.vip = (bool)rdr[11];
             this.canBeVip = email != null;
-            this.banned = banned;
+            this.banned = (bool)rdr[12];
         }
         #endregion
 
@@ -59,6 +59,10 @@ namespace Kikelet_Panzió
             this.banned = banned;
         }
 
+        public override string ToString()
+        {
+            return $"\"{guestCode}\" ,\"{guestName}\", \"{birthDay}\", \"{country}\", \"{postalCode}\", \"{city}\", \"{address}\", \"{email}\", {vip}, {banned}";
+        }
     }
 
 }
