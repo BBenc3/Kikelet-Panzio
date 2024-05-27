@@ -13,20 +13,6 @@
             <MenuItem Header="Foglalás"/>
             <MenuItem Header="Szoba"/>
         </Menu>
-        <DataGrid x:Name="dgvalami" AutoGenerateColumns="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn IsReadOnly="True" Header="ID" Binding="{Binding guestId}"/>
-                <DataGridTextColumn IsReadOnly="True" Header="Kód" Binding="{Binding guestCode}"/>
-                <DataGridTextColumn Header="Név" Binding="{Binding guestName}"/>
-                <DataGridTextColumn Header="Szül. Dátum" Binding="{Binding birthDay, StringFormat=yyyy.MM.dd}"/>
-                <DataGridTextColumn Header="Ország" Binding="{Binding country}"/>
-                <DataGridTextColumn Header="Irányítószám" Binding="{Binding postalCode}"/>
-                <DataGridTextColumn Header="Város" Binding="{Binding city}"/>
-                <DataGridTextColumn Header="Utca" Binding="{Binding address}"/>
-                <DataGridTextColumn Header="E-mail" Binding="{Binding email}"/>
-                <DataGridCheckBoxColumn Header="VIP" Binding="{Binding vip}"/>
-                <DataGridCheckBoxColumn Header="Tiltva" Binding="{Binding banned}" />
-            </DataGrid.Columns>
-        </DataGrid>
+        <DockPanel x:Name="dpContainer"/>
     </StackPanel>
 </Window>

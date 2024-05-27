@@ -7,6 +7,7 @@ using System.Windows.Documents;
 using System.Data.SqlClient;
 using MySqlConnector;
 using System.Collections.ObjectModel;
+using System.Windows;
 
 namespace Kikelet_Panzió
 {
@@ -52,17 +53,27 @@ namespace Kikelet_Panzió
 
             using (MySqlConnection connection = new MySqlConnection(conString))
             {
-                connection.Open();
-                string sqlCmd = $"SELECT * FROM {table}";
-                using (MySqlCommand mSqlcmd = new MySqlCommand(sqlCmd, connection))
-                using (MySqlDataReader rdr = mSqlcmd.ExecuteReader()) 
+                try
                 {
-                    while (rdr.Read())
+                    connection.Open();
+                    string sqlCmd = $"SELECT * FROM {table}";
+                    using (MySqlCommand mSqlcmd = new MySqlCommand(sqlCmd, connection))
+                    using (MySqlDataReader rdr = mSqlcmd.ExecuteReader())
                     {
-                        //A megfelelő osztályból csinál egy példányt, amit a listához ad
-                        list.Add(Activator.CreateInstance(type, rdr));
+                        while (rdr.Read())
+                        {
+                            //A megfelelő osztályból csinál egy példányt, amit a listához ad
+                            list.Add(Activator.CreateInstance(type, rdr));
+                        }
                     }
                 }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show(ex.Message, "Figyelem!", MessageBoxButton.OK, MessageBoxImage.Error);
+                    throw;
+                }
+                
+                
             }
         }
 

@@ -1,7 +1,20 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\bence\\Documents\\Kikelet-Panzio\\Kikelet Panzi\u00F3\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F3697C25-601A-4314-BE05-A6903CDDB430}|Kikelet Panzi\u00F3\\Kikelet Panzi\u00F3.csproj|c:\\users\\bence\\documents\\kikelet-panzio\\kikelet panzi\u00F3\\kikelet panzi\u00F3\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F3697C25-601A-4314-BE05-A6903CDDB430}|Kikelet Panzi\u00F3\\Kikelet Panzi\u00F3.csproj|solutionrelative:kikelet panzi\u00F3\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F3697C25-601A-4314-BE05-A6903CDDB430}|Kikelet Panzi\u00F3\\Kikelet Panzi\u00F3.csproj|c:\\users\\bence\\documents\\kikelet-panzio\\kikelet panzi\u00F3\\kikelet panzi\u00F3\\dblist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F3697C25-601A-4314-BE05-A6903CDDB430}|Kikelet Panzi\u00F3\\Kikelet Panzi\u00F3.csproj|solutionrelative:kikelet panzi\u00F3\\dblist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F3697C25-601A-4314-BE05-A6903CDDB430}|Kikelet Panzi\u00F3\\Kikelet Panzi\u00F3.csproj|c:\\users\\bence\\documents\\kikelet-panzio\\kikelet panzi\u00F3\\kikelet panzi\u00F3\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F3697C25-601A-4314-BE05-A6903CDDB430}|Kikelet Panzi\u00F3\\Kikelet Panzi\u00F3.csproj|solutionrelative:kikelet panzi\u00F3\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,8 +22,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 288,
-          "SelectedChildIndex": -1,
-          "Children": []
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DBList.cs",
+              "DocumentMoniker": "C:\\Users\\bence\\Documents\\Kikelet-Panzio\\Kikelet Panzi\u00F3\\Kikelet Panzi\u00F3\\DBList.cs",
+              "RelativeDocumentMoniker": "Kikelet Panzi\u00F3\\DBList.cs",
+              "ToolTip": "C:\\Users\\bence\\Documents\\Kikelet-Panzio\\Kikelet Panzi\u00F3\\Kikelet Panzi\u00F3\\DBList.cs",
+              "RelativeToolTip": "Kikelet Panzi\u00F3\\DBList.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T20:09:41.388Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\bence\\Documents\\Kikelet-Panzio\\Kikelet Panzi\u00F3\\Kikelet Panzi\u00F3\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Kikelet Panzi\u00F3\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\bence\\Documents\\Kikelet-Panzio\\Kikelet Panzi\u00F3\\Kikelet Panzi\u00F3\\MainWindow.xaml.cs",
+              "RelativeToolTip": "Kikelet Panzi\u00F3\\MainWindow.xaml.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T19:41:52.562Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\bence\\Documents\\Kikelet-Panzio\\Kikelet Panzi\u00F3\\Kikelet Panzi\u00F3\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "Kikelet Panzi\u00F3\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\bence\\Documents\\Kikelet-Panzio\\Kikelet Panzi\u00F3\\Kikelet Panzi\u00F3\\MainWindow.xaml",
+              "RelativeToolTip": "Kikelet Panzi\u00F3\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-05-24T19:44:06.052Z",
+              "EditorCaption": ""
+            }
+          ]
         }
       ]
     }
