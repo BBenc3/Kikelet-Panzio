@@ -131,20 +131,30 @@ namespace Kikelet_Panzió
             }
         }
 
-        //reméljük működik
         public void UpdateDB(object obj)
         {
             this.obj = obj;
-            using (MySqlConnection connection = new MySqlConnection(conString))
+            try
             {
-                connection.Open();
-                string sqlCmd = updateString;
-                using (MySqlCommand mSqlcmd = new MySqlCommand(sqlCmd, connection))
+                using (MySqlConnection connection = new MySqlConnection(conString))
                 {
-                    mSqlcmd.ExecuteNonQuery();
+                    connection.Open();
+                    string sqlCmd = updateString;
+                    using (MySqlCommand mSqlcmd = new MySqlCommand(sqlCmd, connection))
+                    {
+                        mSqlcmd.ExecuteNonQuery();
+                    }
                 }
             }
-            this.obj = null;
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message, "Figyelem!", MessageBoxButton.OK, MessageBoxImage.Error);
+                throw;
+            }
+            finally
+            {
+                this.obj = null;
+            }
         }
 
         internal class RoomList : DBList
@@ -174,7 +184,7 @@ namespace Kikelet_Panzió
                 table = "Reservation";
                 insertString = $"INSERT INTO Reservation (checkedIn, checkedOut, guestId, roomId, firstReservedDay, lastReservedDay, reservationStatus) VALUES";
                 //TODO: implement the update string
-                updateString = $"UPDATE {table} SET checkedIn={}, checkedOut={}, guestId={}, roomId={}, firstReservedDay={}, lastReservedDay={}, reservationStatust={}";
+                updateString = $"UPDATE {table} SET checkedIn={((Reservation)obj).checkedIn}, checkedOut={((Reservation)obj).checkedOut}, guestId={((Reservation)obj).guestId}, roomId={((Reservation)obj).roomId}, firstReservedDay={((Reservation)obj).firstReservedDay}, lastReservedDay={((Reservation)obj).lastReservedDay}, reservationStatust={((Reservation)obj).reservationStatus} WHERE reservationId = {((Reservation)obj).reservationId}";
             }
         }
     }
