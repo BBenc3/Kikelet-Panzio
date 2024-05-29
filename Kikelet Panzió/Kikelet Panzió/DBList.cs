@@ -20,6 +20,7 @@ namespace Kikelet_Panzió
         protected string table;
         protected string conString;
         protected string insertString; //A children osztályok construktorában kell beállítani.
+        protected string updateString; 
 
         private static readonly Dictionary<string, Type> tableTypes = new Dictionary<string, Type>
         {
@@ -105,7 +106,7 @@ namespace Kikelet_Panzió
         /// Az adatbázisból lekéri az utolsó rekordot
         /// </summary>
         /// <exception cref="ArgumentException"></exception>
-        public void GetLastFroDB()
+        public void GetLastFromDB()
         {
             if (!tableTypes.ContainsKey(table))
             {
@@ -128,14 +129,25 @@ namespace Kikelet_Panzió
                 }
             }
         }
+
+        //reméljük működik
+        public void UpdateDB(Object obj)
+        {
+            using (MySqlConnection connection = new MySqlConnection(conString))
+            {
+                connection.Open();
+                string sqlCmd = updateString;
+            }
     }
 
     internal class RoomList : DBList
     {
-        public RoomList(string database, string username, string password) : base(database, username, password)
+            Object obj; 
+            public RoomList(string database, string username, string password) : base(database, username, password)
         {
             table = "Room";
             insertString = $"INSERT INTO Room (roomNumber, accommodation, price) VALUES";
+            updateString = $"UPDATE {table} SET roomNumber = {((Room)obj).roomNumber}, accommodation = {((Room)obj).accommodation}, price = {((Room)obj).price} WHERE roomId = {((Room)obj).roomId}";
         }
     }
 
