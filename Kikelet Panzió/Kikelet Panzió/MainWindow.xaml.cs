@@ -1,16 +1,6 @@
-﻿using System.Collections.ObjectModel;
-using System.Data;
-using System.Text;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Data.SqlClient;
 
 namespace Kikelet_Panzió
 {
@@ -21,16 +11,16 @@ namespace Kikelet_Panzió
 
     public partial class MainWindow : Window
     {
-        internal static RegisteredGuestList registeredGuestList = new RegisteredGuestList("kikeletpanzio", "root", "");
-        internal static RoomList roomList = new RoomList("kikeletpanzio", "root", "");
-        internal static ReservationList reservationList = new ReservationList("kikeletpanzio", "root", "");
+        internal static RegisteredGuestList registeredGuestList = new RegisteredGuestList();
+        internal static RoomList roomList = new RoomList();
+        internal static ReservationList reservationList = new ReservationList();
 
         public MainWindow()
         {
             InitializeComponent();
             registeredGuestList.LoadFromDB();
 
-            DataGrid dgGuest = new DataGrid() 
+            DataGrid dgGuests = new DataGrid()
             {
                 ItemsSource = registeredGuestList.list,
                 AutoGenerateColumns = false,
@@ -49,7 +39,39 @@ namespace Kikelet_Panzió
                     new DataGridCheckBoxColumn() { Header = "Tiltva", Binding = new Binding("banned") },
                 }
             };
-            dpContainer.Children.Add(dgGuest);
+            DataGrid dgRooms = new DataGrid()
+            {
+                ItemsSource = roomList.list,
+                AutoGenerateColumns = false,
+                Columns =
+                {
+                    new DataGridTextColumn() { Header = "ID", Binding = new Binding("roomId") { Mode = BindingMode.OneWay }, IsReadOnly = true},
+                    new DataGridTextColumn() { Header = "Szoba szám", Binding = new Binding("roomNumber"), IsReadOnly = true},
+                    new DataGridTextColumn() { Header = "Férőhely", Binding = new Binding("accommodation"), IsReadOnly = true },
+                    new DataGridTextColumn() { Header = "Ár", Binding = new Binding("price") },
+                }
+            };
+            DataGrid dgReservations = new DataGrid() 
+            {
+                ItemsSource = reservationList.list,
+                AutoGenerateColumns = false,
+                Columns =
+                {
+                    new DataGridTextColumn { Header = "ID", Binding = new Binding("reservationId"), IsReadOnly = true },
+                    new DataGridTextColumn { Header = "Szoba", Binding = new Binding("room") },
+                    new DataGridTextColumn { Header = "Vendég", Binding = new Binding("guest") },
+                    new DataGridTextColumn { Header = "Érkezés", Binding = new Binding("checkedIn") },
+                    new DataGridTextColumn { Header = "Távozás", Binding = new Binding("checkedOut") },
+                    new DataGridTextColumn { Header = "Fizetendő", Binding = new Binding("price") },
+                    new DataGridTextColumn { Header = "Első lefoglalt nap", Binding = new Binding("firstReservedDay") { StringFormat = "yyyy.MM.dd" } },
+                    new DataGridTextColumn { Header = "Utolsó lefoglalt nap", Binding = new Binding("lastReservedDay") { StringFormat = "yyyy.MM.dd" } },
+                    new DataGridTextColumn { Header = "Foglalás időpontja", Binding = new Binding("dateOfReservation") },
+                    new DataGridTextColumn { Header = "Foglalás állapota", Binding = new Binding("reservationStatust") }
+
+                }
+
+            };
+            dpContainer.Children.Add(dgGuests);
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)

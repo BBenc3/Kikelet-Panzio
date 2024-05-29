@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Documents;
-using System.Data.SqlClient;
-using MySqlConnector;
+﻿using MySqlConnector;
 using System.Collections.ObjectModel;
 using System.Windows;
 
@@ -19,7 +12,7 @@ namespace Kikelet_Panzió
         protected string database;
         protected string table;
         protected string conString;
-        protected string insertString; //A children osztályok construktorában kell beállítani.
+        protected string insertString; 
         protected string updateString;
         protected object obj;
 
@@ -30,12 +23,11 @@ namespace Kikelet_Panzió
             { "Reservation", typeof(Reservation) }
         };
 
-        public DBList(string database, string username, string password)
+        public DBList()
         {
-            this.username = username;
-            this.password = password;
-            //Az inheritance miatt a table értéke a leszármazott osztály konstruktorában kerül beállításra
-            this.database = database;
+            this.username = "root";
+            this.password = "";
+            this.database = "kikeletpanzio";
             list = new ObservableCollection<Object>();
             conString = $"Server=localhost;Database={database};Uid={username};Pwd={password};";
         }
@@ -131,7 +123,11 @@ namespace Kikelet_Panzió
             }
         }
 
-        public void UpdateDB(object obj)
+        /// <summary>
+        /// A kapott objektumot módosítja az adatbázisban
+        /// </summary>
+        /// <param name="obj"></param>
+        public void UpdateDB(Object obj)
         {
             this.obj = obj;
             try
@@ -157,35 +153,62 @@ namespace Kikelet_Panzió
             }
         }
 
-        internal class RoomList : DBList
+        /// <summary>
+        /// A kapott indexű rekordot törli az adatbázisból
+        /// </summary>
+        /// <param name="index"></param>
+        public void DeleteFromDB(int index)
         {
-            public RoomList(string database, string username, string password) : base(database, username, password)
+            try
             {
-                table = "Room";
-                insertString = $"INSERT INTO Room (roomNumber, accommodation, price) VALUES";
-                updateString = $"UPDATE {table} SET roomNumber = \"{((Room)obj).roomNumber}\", accommodation = {((Room)obj).accommodation}, price = {((Room)obj).price} WHERE roomId = {((Room)obj).roomId}";
+                using (MySqlConnection connection = new MySqlConnection())
+                {
+                    connection.Open();
+                    string sqlCmd = $"DELETE FROM {table} WHERE {table}Id = {index}";
+                    using (MySqlCommand mSqlcmd = new MySqlCommand(sqlCmd, connection))
+                    {
+                        mSqlcmd.ExecuteNonQuery();
+                    }
+
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message, "Figyelem!", MessageBoxButton.OK, MessageBoxImage.Error);
+                throw;
             }
         }
 
-        internal class RegisteredGuestList : DBList
-        {
-            public RegisteredGuestList(string database, string username, string password) : base(database, username, password)
-            {
-                table = "RegisteredGuest";
-                insertString = $"INSERT INTO RegisteredGuest (guestCode, guestName, birthDay, country, postalCode, city, address, email, vip, banned) VALUES";
-                updateString = $"UPDATE {table} SET guestCode = \"{((RegisteredGuest)obj).guestCode}\", guestName=\"{((RegisteredGuest)obj).guestName}\", birthDay = \"{((RegisteredGuest)obj).birthDay}\", country = \"{((RegisteredGuest)obj).country}\", postalCode = \"{((RegisteredGuest)obj).postalCode}\", city = \"{((RegisteredGuest)obj).city}\", address = \"{((RegisteredGuest)obj).address}\", email = \"{((RegisteredGuest)obj).email}\", vip = {((RegisteredGuest)obj).vip}, banned = {((RegisteredGuest)obj).banned} WHERE guestId = {((RegisteredGuest)obj).guestId}";
-            }
-        }
+    }
 
-        internal class ReservationList : DBList
+    internal class RoomList : DBList
+    {
+        public RoomList()
         {
-            public ReservationList(string database, string username, string password) : base(database, username, password)
-            {
-                table = "Reservation";
-                insertString = $"INSERT INTO Reservation (checkedIn, checkedOut, guestId, roomId, firstReservedDay, lastReservedDay, reservationStatus) VALUES";
-                //TODO: implement the update string
-                updateString = $"UPDATE {table} SET checkedIn={((Reservation)obj).checkedIn}, checkedOut={((Reservation)obj).checkedOut}, guestId={((Reservation)obj).guestId}, roomId={((Reservation)obj).roomId}, firstReservedDay={((Reservation)obj).firstReservedDay}, lastReservedDay={((Reservation)obj).lastReservedDay}, reservationStatust={((Reservation)obj).reservationStatus} WHERE reservationId = {((Reservation)obj).reservationId}";
-            }
+            table = "Room";
+            insertString = $"INSERT INTO Room (roomNumber, accommodation, price) VALUES";
+            updateString = $"UPDATE {table} SET roomNumber = \"{((Room)obj).roomNumber}\", accommodation = {((Room)obj).accommodation}, price = {((Room)obj).price} WHERE roomId = {((Room)obj).roomId}";
+        }
+    }
+
+    internal class RegisteredGuestList : DBList
+    {
+        public RegisteredGuestList()
+        {
+            table = "RegisteredGuest";
+            insertString = $"INSERT INTO RegisteredGuest (guestCode, guestName, birthDay, country, postalCode, city, address, email, vip, banned) VALUES";
+            updateString = $"UPDATE {table} SET guestCode = \"{((RegisteredGuest)obj).guestCode}\", guestName=\"{((RegisteredGuest)obj).guestName}\", birthDay = \"{((RegisteredGuest)obj).birthDay}\", country = \"{((RegisteredGuest)obj).country}\", postalCode = \"{((RegisteredGuest)obj).postalCode}\", city = \"{((RegisteredGuest)obj).city}\", address = \"{((RegisteredGuest)obj).address}\", email = \"{((RegisteredGuest)obj).email}\", vip = {((RegisteredGuest)obj).vip}, banned = {((RegisteredGuest)obj).banned} WHERE guestId = {((RegisteredGuest)obj).guestId}";
+        }
+    }
+
+    internal class ReservationList : DBList
+    {
+        public ReservationList()
+        {
+            table = "Reservation";
+            insertString = $"INSERT INTO Reservation (checkedIn, checkedOut, guestId, roomId, firstReservedDay, lastReservedDay, reservationStatus) VALUES";
+            //TODO: implement the update string
+            updateString = $"UPDATE {table} SET checkedIn={((Reservation)obj).checkedIn}, checkedOut={((Reservation)obj).checkedOut}, guestId={((Reservation)obj).guestId}, roomId={((Reservation)obj).roomId}, firstReservedDay={((Reservation)obj).firstReservedDay}, lastReservedDay={((Reservation)obj).lastReservedDay}, reservationStatust={((Reservation)obj).reservationStatus} WHERE reservationId = {((Reservation)obj).reservationId}";
         }
     }
 }

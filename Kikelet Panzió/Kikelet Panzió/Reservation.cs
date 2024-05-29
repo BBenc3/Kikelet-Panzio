@@ -1,8 +1,4 @@
 ﻿using MySqlConnector;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Kikelet_Panzió
 {
@@ -37,7 +33,7 @@ namespace Kikelet_Panzió
             this.firstReservedDay = (DateTime)rdr[7];
             this.lastReservedDay = (DateTime)rdr[8];
             this.stayed = (lastReservedDay - firstReservedDay).Days;
-            this.total = guest.vip ? (room.price * stayed)*0.3 : room.price * stayed;
+            this.total = guest.vip ? (room.price * stayed) * 0.03 : room.price * stayed;
         }
 
         //For new reservation

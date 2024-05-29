@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fqqIAE5PFd4=",
+  "dgSpecHash": "fo6QnenqEMM=",
   "success": true,
-  "projectFilePath": "C:\\Users\\bence\\Source\\Repos\\BBenc3\\Kikelet-Panzio\\Kikelet Panzió\\Kikelet Panzió\\Kikelet Panzió.csproj",
+  "projectFilePath": "C:\\Users\\bence\\source\\repos\\BBenc3\\Kikelet-Panzio\\Kikelet Panzió\\Kikelet Panzió\\Kikelet Panzió.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bence\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.1\\microsoft.extensions.logging.abstractions.7.0.1.nupkg.sha512",
     "C:\\Users\\bence\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",

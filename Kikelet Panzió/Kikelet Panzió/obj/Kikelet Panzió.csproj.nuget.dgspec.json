@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bence\\Source\\Repos\\BBenc3\\Kikelet-Panzio\\Kikelet Panzió\\Kikelet Panzió\\Kikelet Panzió.csproj": {}
+    "C:\\Users\\bence\\source\\repos\\BBenc3\\Kikelet-Panzio\\Kikelet Panzió\\Kikelet Panzió\\Kikelet Panzió.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bence\\Source\\Repos\\BBenc3\\Kikelet-Panzio\\Kikelet Panzió\\Kikelet Panzió\\Kikelet Panzió.csproj": {
+    "C:\\Users\\bence\\source\\repos\\BBenc3\\Kikelet-Panzio\\Kikelet Panzió\\Kikelet Panzió\\Kikelet Panzió.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bence\\Source\\Repos\\BBenc3\\Kikelet-Panzio\\Kikelet Panzió\\Kikelet Panzió\\Kikelet Panzió.csproj",
+        "projectUniqueName": "C:\\Users\\bence\\source\\repos\\BBenc3\\Kikelet-Panzio\\Kikelet Panzió\\Kikelet Panzió\\Kikelet Panzió.csproj",
         "projectName": "Kikelet Panzió",
-        "projectPath": "C:\\Users\\bence\\Source\\Repos\\BBenc3\\Kikelet-Panzio\\Kikelet Panzió\\Kikelet Panzió\\Kikelet Panzió.csproj",
+        "projectPath": "C:\\Users\\bence\\source\\repos\\BBenc3\\Kikelet-Panzio\\Kikelet Panzió\\Kikelet Panzió\\Kikelet Panzió.csproj",
         "packagesPath": "C:\\Users\\bence\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\bence\\Source\\Repos\\BBenc3\\Kikelet-Panzio\\Kikelet Panzió\\Kikelet Panzió\\obj\\",
         "projectStyle": "PackageReference",
