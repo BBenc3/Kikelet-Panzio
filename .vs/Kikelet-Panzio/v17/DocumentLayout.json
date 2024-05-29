@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\bence\\Documents\\Kikelet-Panzio\\",
+  "WorkspaceRootPath": "C:\\Users\\bence\\source\\repos\\BBenc3\\Kikelet-Panzio\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\bence\\Documents\\Kikelet-Panzio\\SQL.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\bence\\source\\repos\\BBenc3\\Kikelet-Panzio\\SQL.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SQL.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
@@ -20,17 +20,13 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "SQL.txt",
-              "DocumentMoniker": "C:\\Users\\bence\\Documents\\Kikelet-Panzio\\SQL.txt",
+              "DocumentMoniker": "C:\\Users\\bence\\source\\repos\\BBenc3\\Kikelet-Panzio\\SQL.txt",
               "RelativeDocumentMoniker": "SQL.txt",
-              "ToolTip": "C:\\Users\\bence\\Documents\\Kikelet-Panzio\\SQL.txt",
+              "ToolTip": "C:\\Users\\bence\\source\\repos\\BBenc3\\Kikelet-Panzio\\SQL.txt",
               "RelativeToolTip": "SQL.txt",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
               "WhenOpened": "2024-05-18T08:17:46.305Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             }
           ]
         }
