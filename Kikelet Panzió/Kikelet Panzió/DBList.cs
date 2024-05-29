@@ -20,7 +20,8 @@ namespace Kikelet_Panzió
         protected string table;
         protected string conString;
         protected string insertString; //A children osztályok construktorában kell beállítani.
-        protected string updateString; 
+        protected string updateString;
+        protected object obj;
 
         private static readonly Dictionary<string, Type> tableTypes = new Dictionary<string, Type>
         {
@@ -29,7 +30,7 @@ namespace Kikelet_Panzió
             { "Reservation", typeof(Reservation) }
         };
 
-        public DBList(string database, string username, string password) 
+        public DBList(string database, string username, string password)
         {
             this.username = username;
             this.password = password;
@@ -47,7 +48,7 @@ namespace Kikelet_Panzió
         {
             if (!tableTypes.ContainsKey(table))
             {
-               throw new ArgumentException("Nem létező tábla");
+                throw new ArgumentException("Nem létező tábla");
             }
             Type type = tableTypes[table];
             list.Clear();
@@ -73,8 +74,8 @@ namespace Kikelet_Panzió
                     MessageBox.Show(ex.Message, "Figyelem!", MessageBoxButton.OK, MessageBoxImage.Error);
                     throw;
                 }
-                
-                
+
+
             }
         }
 
@@ -90,7 +91,7 @@ namespace Kikelet_Panzió
                 throw new ArgumentException("Nem létező tábla");
             }
             Type type = tableTypes[table];
-            
+
             using (MySqlConnection connection = new MySqlConnection(conString))
             {
                 connection.Open();
@@ -131,41 +132,50 @@ namespace Kikelet_Panzió
         }
 
         //reméljük működik
-        public void UpdateDB(Object obj)
+        public void UpdateDB(object obj)
         {
+            this.obj = obj;
             using (MySqlConnection connection = new MySqlConnection(conString))
             {
                 connection.Open();
                 string sqlCmd = updateString;
+                using (MySqlCommand mSqlcmd = new MySqlCommand(sqlCmd, connection))
+                {
+                    mSqlcmd.ExecuteNonQuery();
+                }
             }
-    }
+            this.obj = null;
+        }
 
-    internal class RoomList : DBList
-    {
-            Object obj; 
+        internal class RoomList : DBList
+        {
             public RoomList(string database, string username, string password) : base(database, username, password)
-        {
-            table = "Room";
-            insertString = $"INSERT INTO Room (roomNumber, accommodation, price) VALUES";
-            updateString = $"UPDATE {table} SET roomNumber = {((Room)obj).roomNumber}, accommodation = {((Room)obj).accommodation}, price = {((Room)obj).price} WHERE roomId = {((Room)obj).roomId}";
+            {
+                table = "Room";
+                insertString = $"INSERT INTO Room (roomNumber, accommodation, price) VALUES";
+                updateString = $"UPDATE {table} SET roomNumber = \"{((Room)obj).roomNumber}\", accommodation = {((Room)obj).accommodation}, price = {((Room)obj).price} WHERE roomId = {((Room)obj).roomId}";
+            }
         }
-    }
 
-    internal class RegisteredGuestList : DBList
-    {
-        public RegisteredGuestList(string database, string username, string password) : base(database, username, password)
+        internal class RegisteredGuestList : DBList
         {
-            table = "RegisteredGuest";
-            insertString = $"INSERT INTO RegisteredGuest (guestCode, guestName, birthDay, country, postalCode, city, address, email, vip, banned) VALUES";
+            public RegisteredGuestList(string database, string username, string password) : base(database, username, password)
+            {
+                table = "RegisteredGuest";
+                insertString = $"INSERT INTO RegisteredGuest (guestCode, guestName, birthDay, country, postalCode, city, address, email, vip, banned) VALUES";
+                updateString = $"UPDATE {table} SET guestCode = \"{((RegisteredGuest)obj).guestCode}\", guestName=\"{((RegisteredGuest)obj).guestName}\", birthDay = \"{((RegisteredGuest)obj).birthDay}\", country = \"{((RegisteredGuest)obj).country}\", postalCode = \"{((RegisteredGuest)obj).postalCode}\", city = \"{((RegisteredGuest)obj).city}\", address = \"{((RegisteredGuest)obj).address}\", email = \"{((RegisteredGuest)obj).email}\", vip = {((RegisteredGuest)obj).vip}, banned = {((RegisteredGuest)obj).banned} WHERE guestId = {((RegisteredGuest)obj).guestId}";
+            }
         }
-    }
 
-    internal class ReservationList : DBList
-    {
-        public ReservationList(string database, string username, string password) : base(database, username, password)
+        internal class ReservationList : DBList
         {
-            table = "Reservation";
-            insertString = $"INSERT INTO Reservation (checkedIn, checkedOut, guestId, roomId, firstReservedDay, lastReservedDay, reservationStatus) VALUES";
+            public ReservationList(string database, string username, string password) : base(database, username, password)
+            {
+                table = "Reservation";
+                insertString = $"INSERT INTO Reservation (checkedIn, checkedOut, guestId, roomId, firstReservedDay, lastReservedDay, reservationStatus) VALUES";
+                //TODO: implement the update string
+                updateString = $"UPDATE {table} SET checkedIn={}, checkedOut={}, guestId={}, roomId={}, firstReservedDay={}, lastReservedDay={}, reservationStatust={}";
+            }
         }
     }
 }
