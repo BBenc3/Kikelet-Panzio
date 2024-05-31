@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Kikelet Panzió")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b71ada729f159bd9ddbac42f4f33e224c1355f5e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d29bbcae31e2555360968af20c18071bbd70c347")]
 [assembly: System.Reflection.AssemblyProductAttribute("Kikelet Panzió")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Kikelet Panzió")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
