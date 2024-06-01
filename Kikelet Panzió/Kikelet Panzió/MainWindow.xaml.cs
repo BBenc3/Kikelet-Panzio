@@ -17,6 +17,8 @@ namespace Kikelet_Panzió
 
         public MainWindow()
         {
+            WindowLogin windowLogin = new WindowLogin();
+            windowLogin.ShowDialog();
             InitializeComponent();
             registeredGuestList.LoadFromDB();
 

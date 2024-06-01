@@ -3,12 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\bence\\source\\repos\\BBenc3\\Kikelet-Panzio\\Kikelet Panzi\u00F3\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F3697C25-601A-4314-BE05-A6903CDDB430}|Kikelet Panzi\u00F3\\Kikelet Panzi\u00F3.csproj|c:\\users\\bence\\source\\repos\\bbenc3\\kikelet-panzio\\kikelet panzi\u00F3\\kikelet panzi\u00F3\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F3697C25-601A-4314-BE05-A6903CDDB430}|Kikelet Panzi\u00F3\\Kikelet Panzi\u00F3.csproj|solutionrelative:kikelet panzi\u00F3\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F3697C25-601A-4314-BE05-A6903CDDB430}|Kikelet Panzi\u00F3\\Kikelet Panzi\u00F3.csproj|c:\\users\\bence\\source\\repos\\bbenc3\\kikelet-panzio\\kikelet panzi\u00F3\\kikelet panzi\u00F3\\windowlogin.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F3697C25-601A-4314-BE05-A6903CDDB430}|Kikelet Panzi\u00F3\\Kikelet Panzi\u00F3.csproj|solutionrelative:kikelet panzi\u00F3\\windowlogin.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F3697C25-601A-4314-BE05-A6903CDDB430}|Kikelet Panzi\u00F3\\Kikelet Panzi\u00F3.csproj|c:\\users\\bence\\source\\repos\\bbenc3\\kikelet-panzio\\kikelet panzi\u00F3\\kikelet panzi\u00F3\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{F3697C25-601A-4314-BE05-A6903CDDB430}|Kikelet Panzi\u00F3\\Kikelet Panzi\u00F3.csproj|solutionrelative:kikelet panzi\u00F3\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F3697C25-601A-4314-BE05-A6903CDDB430}|Kikelet Panzi\u00F3\\Kikelet Panzi\u00F3.csproj|c:\\users\\bence\\source\\repos\\bbenc3\\kikelet-panzio\\kikelet panzi\u00F3\\kikelet panzi\u00F3\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F3697C25-601A-4314-BE05-A6903CDDB430}|Kikelet Panzi\u00F3\\Kikelet Panzi\u00F3.csproj|solutionrelative:kikelet panzi\u00F3\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F3697C25-601A-4314-BE05-A6903CDDB430}|Kikelet Panzi\u00F3\\Kikelet Panzi\u00F3.csproj|c:\\users\\bence\\source\\repos\\bbenc3\\kikelet-panzio\\kikelet panzi\u00F3\\kikelet panzi\u00F3\\dblist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F3697C25-601A-4314-BE05-A6903CDDB430}|Kikelet Panzi\u00F3\\Kikelet Panzi\u00F3.csproj|solutionrelative:kikelet panzi\u00F3\\dblist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F3697C25-601A-4314-BE05-A6903CDDB430}|Kikelet Panzi\u00F3\\Kikelet Panzi\u00F3.csproj|c:\\users\\bence\\source\\repos\\bbenc3\\kikelet-panzio\\kikelet panzi\u00F3\\kikelet panzi\u00F3\\room.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F3697C25-601A-4314-BE05-A6903CDDB430}|Kikelet Panzi\u00F3\\Kikelet Panzi\u00F3.csproj|solutionrelative:kikelet panzi\u00F3\\room.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F3697C25-601A-4314-BE05-A6903CDDB430}|Kikelet Panzi\u00F3\\Kikelet Panzi\u00F3.csproj|c:\\users\\bence\\source\\repos\\bbenc3\\kikelet-panzio\\kikelet panzi\u00F3\\kikelet panzi\u00F3\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F3697C25-601A-4314-BE05-A6903CDDB430}|Kikelet Panzi\u00F3\\Kikelet Panzi\u00F3.csproj|solutionrelative:kikelet panzi\u00F3\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F3697C25-601A-4314-BE05-A6903CDDB430}|Kikelet Panzi\u00F3\\Kikelet Panzi\u00F3.csproj|c:\\users\\bence\\source\\repos\\bbenc3\\kikelet-panzio\\kikelet panzi\u00F3\\kikelet panzi\u00F3\\windowlogin.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F3697C25-601A-4314-BE05-A6903CDDB430}|Kikelet Panzi\u00F3\\Kikelet Panzi\u00F3.csproj|solutionrelative:kikelet panzi\u00F3\\windowlogin.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,19 +38,74 @@
       "DocumentGroups": [
         {
           "DockedWidth": 288,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "WindowLogin.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\bence\\source\\repos\\BBenc3\\Kikelet-Panzio\\Kikelet Panzi\u00F3\\Kikelet Panzi\u00F3\\WindowLogin.xaml.cs",
+              "RelativeDocumentMoniker": "Kikelet Panzi\u00F3\\WindowLogin.xaml.cs",
+              "ToolTip": "C:\\Users\\bence\\source\\repos\\BBenc3\\Kikelet-Panzio\\Kikelet Panzi\u00F3\\Kikelet Panzi\u00F3\\WindowLogin.xaml.cs",
+              "RelativeToolTip": "Kikelet Panzi\u00F3\\WindowLogin.xaml.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-31T18:21:28.513Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "WindowLogin.xaml",
+              "DocumentMoniker": "C:\\Users\\bence\\source\\repos\\BBenc3\\Kikelet-Panzio\\Kikelet Panzi\u00F3\\Kikelet Panzi\u00F3\\WindowLogin.xaml",
+              "RelativeDocumentMoniker": "Kikelet Panzi\u00F3\\WindowLogin.xaml",
+              "ToolTip": "C:\\Users\\bence\\source\\repos\\BBenc3\\Kikelet-Panzio\\Kikelet Panzi\u00F3\\Kikelet Panzi\u00F3\\WindowLogin.xaml",
+              "RelativeToolTip": "Kikelet Panzi\u00F3\\WindowLogin.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-05-31T16:27:47.267Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Room.cs",
+              "DocumentMoniker": "C:\\Users\\bence\\source\\repos\\BBenc3\\Kikelet-Panzio\\Kikelet Panzi\u00F3\\Kikelet Panzi\u00F3\\Room.cs",
+              "RelativeDocumentMoniker": "Kikelet Panzi\u00F3\\Room.cs",
+              "ToolTip": "C:\\Users\\bence\\source\\repos\\BBenc3\\Kikelet-Panzio\\Kikelet Panzi\u00F3\\Kikelet Panzi\u00F3\\Room.cs",
+              "RelativeToolTip": "Kikelet Panzi\u00F3\\Room.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-31T16:18:18.904Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Reservation.cs",
+              "DocumentMoniker": "C:\\Users\\bence\\source\\repos\\BBenc3\\Kikelet-Panzio\\Kikelet Panzi\u00F3\\Kikelet Panzi\u00F3\\Reservation.cs",
+              "RelativeDocumentMoniker": "Kikelet Panzi\u00F3\\Reservation.cs",
+              "ToolTip": "C:\\Users\\bence\\source\\repos\\BBenc3\\Kikelet-Panzio\\Kikelet Panzi\u00F3\\Kikelet Panzi\u00F3\\Reservation.cs",
+              "RelativeToolTip": "Kikelet Panzi\u00F3\\Reservation.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-31T16:16:56.132Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DBList.cs",
+              "DocumentMoniker": "C:\\Users\\bence\\source\\repos\\BBenc3\\Kikelet-Panzio\\Kikelet Panzi\u00F3\\Kikelet Panzi\u00F3\\DBList.cs",
+              "RelativeDocumentMoniker": "Kikelet Panzi\u00F3\\DBList.cs",
+              "ToolTip": "C:\\Users\\bence\\source\\repos\\BBenc3\\Kikelet-Panzio\\Kikelet Panzi\u00F3\\Kikelet Panzi\u00F3\\DBList.cs",
+              "RelativeToolTip": "Kikelet Panzi\u00F3\\DBList.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-31T16:10:25.158Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\bence\\source\\repos\\BBenc3\\Kikelet-Panzio\\Kikelet Panzi\u00F3\\Kikelet Panzi\u00F3\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "Kikelet Panzi\u00F3\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\bence\\source\\repos\\BBenc3\\Kikelet-Panzio\\Kikelet Panzi\u00F3\\Kikelet Panzi\u00F3\\MainWindow.xaml.cs",
               "RelativeToolTip": "Kikelet Panzi\u00F3\\MainWindow.xaml.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T19:41:52.562Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-24T19:41:52.562Z"
             },
             {
               "$type": "Document",
@@ -41,8 +116,7 @@
               "ToolTip": "C:\\Users\\bence\\source\\repos\\BBenc3\\Kikelet-Panzio\\Kikelet Panzi\u00F3\\Kikelet Panzi\u00F3\\MainWindow.xaml",
               "RelativeToolTip": "Kikelet Panzi\u00F3\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-05-24T19:44:06.052Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-24T19:44:06.052Z"
             }
           ]
         }

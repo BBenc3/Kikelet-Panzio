@@ -185,6 +185,7 @@ namespace Kikelet_Panzió
     {
         public RoomList()
         {
+            obj = new Room(0, "Room1", 1, 100);
             table = "Room";
             insertString = $"INSERT INTO Room (roomNumber, accommodation, price) VALUES";
             updateString = $"UPDATE {table} SET roomNumber = \"{((Room)obj).roomNumber}\", accommodation = {((Room)obj).accommodation}, price = {((Room)obj).price} WHERE roomId = {((Room)obj).roomId}";
@@ -195,6 +196,7 @@ namespace Kikelet_Panzió
     {
         public RegisteredGuestList()
         {
+            obj = new RegisteredGuest("guestCode1", "John Doe", DateTime.Now, "USA", "10001", "New York", "123 Street", "johndoe@example.com", false, false);
             table = "RegisteredGuest";
             insertString = $"INSERT INTO RegisteredGuest (guestCode, guestName, birthDay, country, postalCode, city, address, email, vip, banned) VALUES";
             updateString = $"UPDATE {table} SET guestCode = \"{((RegisteredGuest)obj).guestCode}\", guestName=\"{((RegisteredGuest)obj).guestName}\", birthDay = \"{((RegisteredGuest)obj).birthDay}\", country = \"{((RegisteredGuest)obj).country}\", postalCode = \"{((RegisteredGuest)obj).postalCode}\", city = \"{((RegisteredGuest)obj).city}\", address = \"{((RegisteredGuest)obj).address}\", email = \"{((RegisteredGuest)obj).email}\", vip = {((RegisteredGuest)obj).vip}, banned = {((RegisteredGuest)obj).banned} WHERE guestId = {((RegisteredGuest)obj).guestId}";
@@ -205,9 +207,9 @@ namespace Kikelet_Panzió
     {
         public ReservationList()
         {
+            obj = new Reservation(DateTime.Now, DateTime.Now, 1, 1, DateTime.Now, DateTime.Now.AddDays(7), "Confirmed");
             table = "Reservation";
             insertString = $"INSERT INTO Reservation (checkedIn, checkedOut, guestId, roomId, firstReservedDay, lastReservedDay, reservationStatus) VALUES";
-            //TODO: implement the update string
             updateString = $"UPDATE {table} SET checkedIn={((Reservation)obj).checkedIn}, checkedOut={((Reservation)obj).checkedOut}, guestId={((Reservation)obj).guestId}, roomId={((Reservation)obj).roomId}, firstReservedDay={((Reservation)obj).firstReservedDay}, lastReservedDay={((Reservation)obj).lastReservedDay}, reservationStatust={((Reservation)obj).reservationStatus} WHERE reservationId = {((Reservation)obj).reservationId}";
         }
     }
