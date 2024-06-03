@@ -26,7 +26,8 @@ namespace Kikelet_Panzió
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-
+            throw new NotImplementedException();
+            Close();
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿Kikelet Panzió
-1.0.0.0
+
 
 winexe
 C#
@@ -12,9 +12,9 @@ TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\bence\source\repos\BBenc3\Kikelet-Panzio\Kikelet Panzió\Kikelet Panzió\App.xaml
 21151906203
 
-11483388780
+91100735813
 201137693147
 MainWindow.xaml;WindowLogin.xaml;
 
-True
+False
 

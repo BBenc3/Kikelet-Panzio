@@ -80,5 +80,90 @@ namespace Kikelet_Panzió
         {
             //registeredGuestList.InsertToDB();
         }
+
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void miGuestregister_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void miReservation_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void miStatistics_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void miGuests_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void miBanned_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void miRooms_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void miAllRooms_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void miFreeRooms_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void miReservedRooms_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void miReservations_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void miAllReservations_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void miInactiveReservations_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void miDeletedReservations_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void miSortByDate_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void miAllGuests_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void miVIP_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

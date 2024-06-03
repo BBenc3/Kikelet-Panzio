@@ -19,24 +19,41 @@
         <Style TargetType="Button">
             <Setter Property="Margin" Value="5"/>
         </Style>
+        <Style TargetType="StackPanel">
+            <Setter Property="Margin" Value="5"/>
+        </Style>
     </Window.Resources>
     <StackPanel>
         <Menu>
-            <MenuItem Header="Vendég" Name="MiGuests"/>
-            <MenuItem Header="Foglalás" Name="MiReservations"/>
-            <MenuItem Header="Szoba" Name="MiRooms"/>
-            <MenuItem Header="Bejelentkezés" Name="MiLogin"/>
+            <MenuItem Header="Vendég regisztrálása" Name="miGuestregister" Click="miGuestregister_Click"/>
+            <MenuItem Header="Foglalás" Name="miReservation" Click="miReservation_Click"/>
+            <MenuItem Header="Szűrés">
+                <MenuItem Header="Vendégek" Name="miGuests" Click="miGuests_Click">
+                    <MenuItem Header="Összes" Name="miAllGuests" Click="miAllGuests_Click" IsCheckable="True" IsChecked="True"/>
+                    <MenuItem Header="VIP" Name="miVIP" Click="miVIP_Click" IsCheckable="True"/>
+                    <MenuItem Header="Banned" Name="miBanned" Click="miBanned_Click" IsCheckable="True"/>
+                </MenuItem>
+                <MenuItem Header="Szobák" Name="miRooms">
+                    <MenuItem Header="Összes" Name="miAllRooms" Click="miAllRooms_Click" IsCheckable="True"/>
+                    <MenuItem Header="Szabad" Name="miFreeRooms" Click="miFreeRooms_Click" IsCheckable="True"/>
+                    <MenuItem Header="Foglalt" Name="miReservedRooms" Click="miReservedRooms_Click" IsCheckable="True"/>
+                </MenuItem>
+                <MenuItem Header="Foglalások" Name="miReservations">
+                    <MenuItem Header="Összes" Name="miAllReservations" Click="miAllReservations_Click" IsCheckable="True"/>
+                    <MenuItem Header="Inaktív" Name="miInactiveReservations" Click="miInactiveReservations_Click" IsCheckable="True"/>
+                    <MenuItem Header="Törölt" Name="miDeletedReservations" Click="miDeletedReservations_Click" IsCheckable="True"/>
+                    <MenuItem Header="Dátum alapján" Name="miSortByDate" Click="miSortByDate_Click" IsCheckable="True"/>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Statisztikák" Name="miStatistics" Click="miStatistics_Click"/>
         </Menu>
         <StackPanel x:Name="spSearchbar" Style="{StaticResource Searchbar}">
             <StackPanel Style="{StaticResource innerSp}">
                 <TextBlock Text="Keresés:"/>
                 <TextBox x:Name="tbSearch"/>
-                <Button x:Name="btnSearch" Content="Keresés"/>
+                <Button x:Name="btnSearch" Content="Keresés" Click="btnSearch_Click"/>
             </StackPanel>
-            <StackPanel x:Name="spConditions" Style="{StaticResource innerSp}">
-                <RadioButton Content=" - " GroupName="Condition" IsChecked="True"/>
-                <RadioButton Content="Elérhető szobák" GroupName="Condition"/>
-            </StackPanel>
+            
         </StackPanel>
         <DockPanel x:Name="dpContainer"/>
     </StackPanel>
