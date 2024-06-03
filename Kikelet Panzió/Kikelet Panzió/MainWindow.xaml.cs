@@ -15,18 +15,11 @@ namespace Kikelet_Panzió
         internal static RoomList roomList = new RoomList();
         internal static ReservationList reservationList = new ReservationList();
 
-        public MainWindow()
+        DataGrid dgGuests = new DataGrid()
         {
-            WindowLogin windowLogin = new WindowLogin();
-            windowLogin.ShowDialog();
-            InitializeComponent();
-            registeredGuestList.LoadFromDB();
-
-            DataGrid dgGuests = new DataGrid()
-            {
-                ItemsSource = registeredGuestList.list,
-                AutoGenerateColumns = false,
-                Columns =
+            ItemsSource = registeredGuestList.list,
+            AutoGenerateColumns = false,
+            Columns =
                 {
                     new DataGridTextColumn() { Header = "ID", Binding = new Binding("guestId") { Mode = BindingMode.OneWay }, IsReadOnly = true},
                     new DataGridTextColumn() { Header = "Kód", Binding = new Binding("guestCode") { Mode = BindingMode.OneWay }, IsReadOnly = true},
@@ -40,39 +33,49 @@ namespace Kikelet_Panzió
                     new DataGridCheckBoxColumn() { Header = "VIP", Binding = new Binding("vip")},
                     new DataGridCheckBoxColumn() { Header = "Tiltva", Binding = new Binding("banned") },
                 }
-            };
-            DataGrid dgRooms = new DataGrid()
-            {
-                ItemsSource = roomList.list,
-                AutoGenerateColumns = false,
-                Columns =
+        };
+        DataGrid dgRooms = new DataGrid()
+        {
+            ItemsSource = roomList.list,
+            AutoGenerateColumns = false,
+            Columns =
                 {
                     new DataGridTextColumn() { Header = "ID", Binding = new Binding("roomId") { Mode = BindingMode.OneWay }, IsReadOnly = true},
                     new DataGridTextColumn() { Header = "Szoba szám", Binding = new Binding("roomNumber"), IsReadOnly = true},
                     new DataGridTextColumn() { Header = "Férőhely", Binding = new Binding("accommodation"), IsReadOnly = true },
                     new DataGridTextColumn() { Header = "Ár", Binding = new Binding("price") },
                 }
-            };
-            DataGrid dgReservations = new DataGrid() 
-            {
-                ItemsSource = reservationList.list,
-                AutoGenerateColumns = false,
-                Columns =
+        };
+        DataGrid dgReservations = new DataGrid()
+        {
+            ItemsSource = reservationList.list,
+            AutoGenerateColumns = false,
+            Columns =
                 {
                     new DataGridTextColumn { Header = "ID", Binding = new Binding("reservationId"), IsReadOnly = true },
-                    new DataGridTextColumn { Header = "Szoba", Binding = new Binding("room") },
-                    new DataGridTextColumn { Header = "Vendég", Binding = new Binding("guest") },
+                    new DataGridTextColumn { Header = "Szoba", Binding = new Binding("room"), IsReadOnly = true },
+                    new DataGridTextColumn { Header = "Vendég", Binding = new Binding("guest"), IsReadOnly = true },
                     new DataGridTextColumn { Header = "Érkezés", Binding = new Binding("checkedIn") },
                     new DataGridTextColumn { Header = "Távozás", Binding = new Binding("checkedOut") },
                     new DataGridTextColumn { Header = "Fizetendő", Binding = new Binding("price") },
                     new DataGridTextColumn { Header = "Első lefoglalt nap", Binding = new Binding("firstReservedDay") { StringFormat = "yyyy.MM.dd" } },
                     new DataGridTextColumn { Header = "Utolsó lefoglalt nap", Binding = new Binding("lastReservedDay") { StringFormat = "yyyy.MM.dd" } },
                     new DataGridTextColumn { Header = "Foglalás időpontja", Binding = new Binding("dateOfReservation") },
-                    new DataGridTextColumn { Header = "Foglalás állapota", Binding = new Binding("reservationStatust") }
+                    new DataGridTextColumn { Header = "Foglalás állapota", Binding = new Binding("reservationStatus") }
 
                 }
 
-            };
+        };
+        public MainWindow()
+        {
+            WindowLogin windowLogin = new WindowLogin();
+            windowLogin.ShowDialog();
+            InitializeComponent();
+            registeredGuestList.LoadFromDB();
+            roomList.LoadFromDB();
+            reservationList.LoadFromDB();
+            
+            
             dpContainer.Children.Add(dgGuests);
         }
 
@@ -101,24 +104,18 @@ namespace Kikelet_Panzió
             throw new NotImplementedException();
         }
 
-        private void miGuests_Click(object sender, RoutedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
         private void miBanned_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
-        }
-
-        private void miRooms_Click(object sender, RoutedEventArgs e)
-        {
-            throw new NotImplementedException();
+            dpContainer.Children.Clear();
+            dgGuests.ItemsSource = registeredGuestList.list.Where(x => ((RegisteredGuest)x).banned == true);
+            dpContainer.Children.Add(dgGuests);
         }
 
         private void miAllRooms_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            dpContainer.Children.Clear();
+            dgGuests.ItemsSource = roomList.list;
+            dpContainer.Children.Add(dgRooms);
         }
 
         private void miFreeRooms_Click(object sender, RoutedEventArgs e)
@@ -138,17 +135,23 @@ namespace Kikelet_Panzió
 
         private void miAllReservations_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            dpContainer.Children.Clear();
+            dgReservations.ItemsSource = reservationList.list;
+            dpContainer.Children.Add(dgReservations);
         }
 
         private void miInactiveReservations_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            dpContainer.Children.Clear();
+            dgReservations.ItemsSource = reservationList.list.Where(x => ((Reservation)x).reservationStatus == "Inactive");
+            dpContainer.Children.Add(dgReservations);
         }
 
         private void miDeletedReservations_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            dpContainer.Children.Clear();
+            dgReservations.ItemsSource = reservationList.list.Where(x => ((Reservation)x).reservationStatus == "Deleted");
+            dpContainer.Children.Add(dgReservations);
         }
 
         private void miSortByDate_Click(object sender, RoutedEventArgs e)
@@ -158,12 +161,16 @@ namespace Kikelet_Panzió
 
         private void miAllGuests_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            dpContainer.Children.Clear();
+            dgGuests.ItemsSource = registeredGuestList.list;
+            dpContainer.Children.Add(dgGuests);
         }
 
         private void miVIP_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            dpContainer.Children.Clear();
+            dgGuests.ItemsSource = registeredGuestList.list.Where(x => ((RegisteredGuest)x).vip == true);
+            dpContainer.Children.Add(dgGuests);
         }
     }
 }

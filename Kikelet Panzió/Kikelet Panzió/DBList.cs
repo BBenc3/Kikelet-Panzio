@@ -8,7 +8,7 @@ namespace Kikelet_Panzió
     {
         internal string username { get; set; }
         internal string password { get; set; }
-        public ObservableCollection<Object> list { get; }
+        public ObservableCollection<object> list { get; }
         protected string database;
         protected string table;
         protected string conString;
@@ -18,9 +18,9 @@ namespace Kikelet_Panzió
 
         private static readonly Dictionary<string, Type> tableTypes = new Dictionary<string, Type>
         {
-            { "Room", typeof(Room) },
+            { "room", typeof(Room) },
             { "RegisteredGuest", typeof(RegisteredGuest) },
-            { "Reservation", typeof(Reservation) }
+            { "reservation", typeof(Reservation) }
         };
 
         public DBList()
@@ -186,7 +186,7 @@ namespace Kikelet_Panzió
         public RoomList()
         {
             obj = new Room(0, "Room1", 1, 100);
-            table = "Room";
+            table = "room";
             insertString = $"INSERT INTO Room (roomNumber, accommodation, price) VALUES";
             updateString = $"UPDATE {table} SET roomNumber = \"{((Room)obj).roomNumber}\", accommodation = {((Room)obj).accommodation}, price = {((Room)obj).price} WHERE roomId = {((Room)obj).roomId}";
         }
@@ -208,7 +208,7 @@ namespace Kikelet_Panzió
         public ReservationList()
         {
             obj = new Reservation(DateTime.Now, DateTime.Now, 1, 1, DateTime.Now, DateTime.Now.AddDays(7), "Confirmed");
-            table = "Reservation";
+            table = "reservation";
             insertString = $"INSERT INTO Reservation (checkedIn, checkedOut, guestId, roomId, firstReservedDay, lastReservedDay, reservationStatus) VALUES";
             updateString = $"UPDATE {table} SET checkedIn={((Reservation)obj).checkedIn}, checkedOut={((Reservation)obj).checkedOut}, guestId={((Reservation)obj).guestId}, roomId={((Reservation)obj).roomId}, firstReservedDay={((Reservation)obj).firstReservedDay}, lastReservedDay={((Reservation)obj).lastReservedDay}, reservationStatust={((Reservation)obj).reservationStatus} WHERE reservationId = {((Reservation)obj).reservationId}";
         }

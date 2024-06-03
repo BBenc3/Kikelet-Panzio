@@ -23,15 +23,15 @@ namespace Kikelet_Panzió
         public Reservation(MySqlDataReader rdr)
         {
             this.reservationId = (int)rdr[0];
-            this.checkedIn = (DateTime)rdr[1];
-            this.checkedOut = (DateTime)rdr[2];
-            this.guestId = (int)rdr[4];
-            //this.guest = MainWindow.guests.FirstOrDefault(x => x.guestId == this.guestId);
-            this.roomId = (int)rdr[5];
-            //this.room = MainWindow.rooms.FirstOrDefault(x => x.roomId == this.roomId); ;
-            this.dateOfReservation = (DateTime)rdr[6];
-            this.firstReservedDay = (DateTime)rdr[7];
-            this.lastReservedDay = (DateTime)rdr[8];
+            this.checkedIn = rdr[1] != DBNull.Value ? (DateTime)rdr[1] : default;
+            this.checkedOut = rdr[2] != DBNull.Value ? (DateTime)rdr[2] : default;
+            this.guestId = (int)rdr[3];
+            this.guest = MainWindow.registeredGuestList.list.Select(x => (RegisteredGuest)x).FirstOrDefault(x => x.guestId == this.guestId);
+            this.roomId = (int)rdr[4];
+            this.room = MainWindow.roomList.list.Select(x => (Room)x).FirstOrDefault(x => x.roomId == this.roomId);
+            this.dateOfReservation = (DateTime)rdr[5];
+            this.firstReservedDay = (DateTime)rdr[6];
+            this.lastReservedDay = (DateTime)rdr[7];
             this.stayed = (lastReservedDay - firstReservedDay).Days;
             this.total = guest.vip ? (room.price * stayed) * 0.03 : room.price * stayed;
         }
