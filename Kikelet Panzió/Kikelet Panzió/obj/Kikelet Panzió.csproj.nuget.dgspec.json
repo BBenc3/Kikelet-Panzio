@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bence\\source\\repos\\BBenc3\\Kikelet-Panzio\\Kikelet Panzió\\Kikelet Panzió\\Kikelet Panzió.csproj": {}
+    "C:\\Users\\bbence3\\Desktop\\Kikelet-Panzio\\Kikelet Panzió\\Kikelet Panzió\\Kikelet Panzió.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bence\\source\\repos\\BBenc3\\Kikelet-Panzio\\Kikelet Panzió\\Kikelet Panzió\\Kikelet Panzió.csproj": {
+    "C:\\Users\\bbence3\\Desktop\\Kikelet-Panzio\\Kikelet Panzió\\Kikelet Panzió\\Kikelet Panzió.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bence\\source\\repos\\BBenc3\\Kikelet-Panzio\\Kikelet Panzió\\Kikelet Panzió\\Kikelet Panzió.csproj",
+        "projectUniqueName": "C:\\Users\\bbence3\\Desktop\\Kikelet-Panzio\\Kikelet Panzió\\Kikelet Panzió\\Kikelet Panzió.csproj",
         "projectName": "Kikelet Panzió",
-        "projectPath": "C:\\Users\\bence\\source\\repos\\BBenc3\\Kikelet-Panzio\\Kikelet Panzió\\Kikelet Panzió\\Kikelet Panzió.csproj",
-        "packagesPath": "C:\\Users\\bence\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bence\\source\\repos\\BBenc3\\Kikelet-Panzio\\Kikelet Panzió\\Kikelet Panzió\\obj\\",
+        "projectPath": "C:\\Users\\bbence3\\Desktop\\Kikelet-Panzio\\Kikelet Panzió\\Kikelet Panzió\\Kikelet Panzió.csproj",
+        "packagesPath": "C:\\Users\\bbence3\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\bbence3\\Desktop\\Kikelet-Panzio\\Kikelet Panzió\\Kikelet Panzió\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\bence\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\bbence3\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -34,26 +38,11 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
-          "dependencies": {
-            "MySqlConnector": {
-              "target": "Package",
-              "version": "[2.3.7, )"
-            },
-            "System.Data.SqlClient": {
-              "target": "Package",
-              "version": "[4.8.6, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -65,15 +54,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            },
-            "Microsoft.WindowsDesktop.App.WPF": {
-              "privateAssets": "none"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     }

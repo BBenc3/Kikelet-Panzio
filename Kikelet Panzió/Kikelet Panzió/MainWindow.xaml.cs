@@ -103,67 +103,67 @@ namespace Kikelet_Panzió
 
         private void miGuests_Click(object sender, RoutedEventArgs e)
         {
-
+            throw new NotImplementedException();
         }
 
         private void miBanned_Click(object sender, RoutedEventArgs e)
         {
-
+            throw new NotImplementedException();
         }
 
         private void miRooms_Click(object sender, RoutedEventArgs e)
         {
-
+            throw new NotImplementedException();
         }
 
         private void miAllRooms_Click(object sender, RoutedEventArgs e)
         {
-
+            throw new NotImplementedException();
         }
 
         private void miFreeRooms_Click(object sender, RoutedEventArgs e)
         {
-
+            throw new NotImplementedException();
         }
 
         private void miReservedRooms_Click(object sender, RoutedEventArgs e)
         {
-
+            throw new NotImplementedException();
         }
 
         private void miReservations_Click(object sender, RoutedEventArgs e)
         {
-
+            throw new NotImplementedException();
         }
 
         private void miAllReservations_Click(object sender, RoutedEventArgs e)
         {
-
+            throw new NotImplementedException();
         }
 
         private void miInactiveReservations_Click(object sender, RoutedEventArgs e)
         {
-
+            throw new NotImplementedException();
         }
 
         private void miDeletedReservations_Click(object sender, RoutedEventArgs e)
         {
-
+            throw new NotImplementedException();
         }
 
         private void miSortByDate_Click(object sender, RoutedEventArgs e)
         {
-
+            throw new NotImplementedException();
         }
 
         private void miAllGuests_Click(object sender, RoutedEventArgs e)
         {
-
+            throw new NotImplementedException();
         }
 
         private void miVIP_Click(object sender, RoutedEventArgs e)
         {
-
+            throw new NotImplementedException();
         }
     }
 }
