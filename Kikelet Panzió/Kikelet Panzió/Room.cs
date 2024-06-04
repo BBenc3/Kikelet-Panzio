@@ -28,7 +28,7 @@ namespace Kikelet_Panzió
 
         public override string ToString()
         {
-            return $"\"{roomNumber}\", {accommodation}, {price}";
+            return roomNumber;
         }
     }
 }

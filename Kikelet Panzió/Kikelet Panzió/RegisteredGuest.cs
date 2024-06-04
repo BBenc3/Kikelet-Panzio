@@ -53,7 +53,7 @@ namespace Kikelet_Panzió
 
         public override string ToString()
         {
-            return $"\"{guestCode}\" ,\"{guestName}\", \"{birthDay}\", \"{country}\", \"{postalCode}\", \"{city}\", \"{address}\", \"{email}\", {vip}, {banned}";
+            return guestName;
         }
     }
 

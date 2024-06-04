@@ -1,0 +1,20 @@
+﻿<Window x:Class="Kikelet_Panzió.ReservationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kikelet_Panzió"
+        mc:Ignorable="d"
+        Title="ReservationWindow" Height="450" Width="800">
+    <StackPanel>
+        <TextBlock Text="Vendég:"/>
+        <ComboBox x:Name="cbGuest"/>
+        <TextBlock Text="Szoba:"/>
+        <ComboBox x:Name="cbRoom"/>
+        <TextBlock Text="-Tól"/>
+        <DatePicker x:Name="dpFrom"/>
+        <TextBlock Text="-ig"/>
+        <DatePicker x:Name="dpTo"/>
+        <Button x:Name="btnReserve" Content="Foglalás" Click="btnReserve_Click"/>
+    </StackPanel>
+</Window>

@@ -1,5 +1,8 @@
 ﻿using MySqlConnector;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.Diagnostics.Metrics;
+using System.Net;
 using System.Windows;
 
 namespace Kikelet_Panzió
@@ -78,6 +81,7 @@ namespace Kikelet_Panzió
         /// <exception cref="ArgumentException"></exception>
         public void InsertToDB(Object obj)
         {
+            this.obj = obj;
             if (!tableTypes.ContainsKey(table))
             {
                 throw new ArgumentException("Nem létező tábla");
@@ -93,6 +97,7 @@ namespace Kikelet_Panzió
                     mSqlcmd.ExecuteNonQuery();
                 }
             }
+            this.obj = null;
         }
 
         /// <summary>
@@ -187,7 +192,9 @@ namespace Kikelet_Panzió
         {
             obj = new Room(0, "Room1", 1, 100);
             table = "room";
-            insertString = $"INSERT INTO Room (roomNumber, accommodation, price) VALUES";
+
+            insertString = $"INSERT INTO Room (roomNumber, accommodation, price) VALUES \"{((Room)obj).roomNumber}\", {((Room)obj).accommodation}, {((Room)obj).price}";
+
             updateString = $"UPDATE {table} SET roomNumber = \"{((Room)obj).roomNumber}\", accommodation = {((Room)obj).accommodation}, price = {((Room)obj).price} WHERE roomId = {((Room)obj).roomId}";
         }
     }
@@ -198,7 +205,9 @@ namespace Kikelet_Panzió
         {
             obj = new RegisteredGuest("guestCode1", "John Doe", DateTime.Now, "USA", "10001", "New York", "123 Street", "johndoe@example.com", false, false);
             table = "RegisteredGuest";
-            insertString = $"INSERT INTO RegisteredGuest (guestCode, guestName, birthDay, country, postalCode, city, address, email, vip, banned) VALUES";
+
+            insertString = $"INSERT INTO RegisteredGuest (guestCode, guestName, birthDay, country, postalCode, city, address, email, vip, banned) VALUES \"{((RegisteredGuest)obj).guestCode}\" ,\"{((RegisteredGuest)obj).guestName}\", \"{((RegisteredGuest)obj).birthDay}\", \"{((RegisteredGuest)obj).country}\", \"{((RegisteredGuest)obj).postalCode}\", \"{((RegisteredGuest)obj).city}\", \"{((RegisteredGuest)obj).address}\", \"{((RegisteredGuest)obj).email}\", {((RegisteredGuest)obj).vip}, {((RegisteredGuest)obj).banned}";
+
             updateString = $"UPDATE {table} SET guestCode = \"{((RegisteredGuest)obj).guestCode}\", guestName=\"{((RegisteredGuest)obj).guestName}\", birthDay = \"{((RegisteredGuest)obj).birthDay}\", country = \"{((RegisteredGuest)obj).country}\", postalCode = \"{((RegisteredGuest)obj).postalCode}\", city = \"{((RegisteredGuest)obj).city}\", address = \"{((RegisteredGuest)obj).address}\", email = \"{((RegisteredGuest)obj).email}\", vip = {((RegisteredGuest)obj).vip}, banned = {((RegisteredGuest)obj).banned} WHERE guestId = {((RegisteredGuest)obj).guestId}";
         }
     }
@@ -209,7 +218,9 @@ namespace Kikelet_Panzió
         {
             obj = new Reservation(DateTime.Now, DateTime.Now, 1, 1, DateTime.Now, DateTime.Now.AddDays(7), "Confirmed");
             table = "reservation";
-            insertString = $"INSERT INTO Reservation (checkedIn, checkedOut, guestId, roomId, firstReservedDay, lastReservedDay, reservationStatus) VALUES";
+
+            insertString = $"INSERT INTO Reservation (checkedIn, checkedOut, guestId, roomId, firstReservedDay, lastReservedDay, reservationStatus) VALUES\"{((Reservation)obj).checkedIn}\", \"{((Reservation)obj).checkedOut}\", {((Reservation)obj).guestId}, {((Reservation)obj).roomId}, \"{((Reservation)obj).firstReservedDay}\", \"{((Reservation)obj).lastReservedDay}\", \"{((Reservation)obj).reservationStatus}\"";
+
             updateString = $"UPDATE {table} SET checkedIn={((Reservation)obj).checkedIn}, checkedOut={((Reservation)obj).checkedOut}, guestId={((Reservation)obj).guestId}, roomId={((Reservation)obj).roomId}, firstReservedDay={((Reservation)obj).firstReservedDay}, lastReservedDay={((Reservation)obj).lastReservedDay}, reservationStatust={((Reservation)obj).reservationStatus} WHERE reservationId = {((Reservation)obj).reservationId}";
         }
     }

@@ -32,6 +32,7 @@ namespace Kikelet_Panzió
             this.dateOfReservation = (DateTime)rdr[5];
             this.firstReservedDay = (DateTime)rdr[6];
             this.lastReservedDay = (DateTime)rdr[7];
+
             this.stayed = (lastReservedDay - firstReservedDay).Days;
             this.total = guest.vip ? (room.price * stayed) * 0.03 : room.price * stayed;
         }
@@ -51,7 +52,7 @@ namespace Kikelet_Panzió
 
         public override string ToString()
         {
-            return $"\"{checkedIn}\", \"{checkedOut}\", {guestId}, {roomId}, \"{firstReservedDay}\", \"{lastReservedDay}\", \"{reservationStatus}\"";
+            return "";
         }
     }
 }

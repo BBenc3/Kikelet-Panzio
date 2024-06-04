@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kikelet_Panzió"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
+        Title="MainWindow" Height="auto" Width="auto"
         Closing="Window_Closing">
     <Window.Resources>
         <Style x:Key="Searchbar" TargetType="StackPanel">
@@ -42,6 +42,7 @@
                     <MenuItem Header="Összes" Name="miAllReservations" Click="miAllReservations_Click" />
                     <MenuItem Header="Inaktív" Name="miInactiveReservations" Click="miInactiveReservations_Click" />
                     <MenuItem Header="Törölt" Name="miDeletedReservations" Click="miDeletedReservations_Click" />
+                    <MenuItem Header="Aktív" Name="miActiveReservations" Click="miActiveReservations_Click" />
                     <MenuItem Header="Dátum alapján" Name="miSortByDate" Click="miSortByDate_Click" />
                 </MenuItem>
             </MenuItem>

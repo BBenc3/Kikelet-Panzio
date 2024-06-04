@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\bence\source\repos\BBenc3\Kikelet-Panzio\Kikelet Panzió\Kikelet Panzió\App.xaml
-21151906203
+31632532964
 
-11483388780
+122023368182
 201137693147
-MainWindow.xaml;WindowLogin.xaml;
+MainWindow.xaml;ReservationWindow.xaml;WindowLogin.xaml;
 
 True
 

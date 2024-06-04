@@ -57,7 +57,7 @@ namespace Kikelet_Panzió
                     new DataGridTextColumn { Header = "Vendég", Binding = new Binding("guest"), IsReadOnly = true },
                     new DataGridTextColumn { Header = "Érkezés", Binding = new Binding("checkedIn") },
                     new DataGridTextColumn { Header = "Távozás", Binding = new Binding("checkedOut") },
-                    new DataGridTextColumn { Header = "Fizetendő", Binding = new Binding("price") },
+                    new DataGridTextColumn { Header = "Fizetendő (Ft)", Binding = new Binding("total") },
                     new DataGridTextColumn { Header = "Első lefoglalt nap", Binding = new Binding("firstReservedDay") { StringFormat = "yyyy.MM.dd" } },
                     new DataGridTextColumn { Header = "Utolsó lefoglalt nap", Binding = new Binding("lastReservedDay") { StringFormat = "yyyy.MM.dd" } },
                     new DataGridTextColumn { Header = "Foglalás időpontja", Binding = new Binding("dateOfReservation") },
@@ -96,7 +96,10 @@ namespace Kikelet_Panzió
 
         private void miReservation_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            ReservationWindow reservationWindow = new ReservationWindow();
+            reservationWindow.ShowDialog();
+            reservationList.InsertToDB(); //No worky work, kéne neki obj
+
         }
 
         private void miStatistics_Click(object sender, RoutedEventArgs e)
@@ -114,18 +117,38 @@ namespace Kikelet_Panzió
         private void miAllRooms_Click(object sender, RoutedEventArgs e)
         {
             dpContainer.Children.Clear();
-            dgGuests.ItemsSource = roomList.list;
+            dgRooms.ItemsSource = roomList.list;
             dpContainer.Children.Add(dgRooms);
         }
 
         private void miFreeRooms_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            dpContainer.Children.Clear();
+            List<Room> reservedRooms = new List<Room>();
+            foreach (Reservation reservation in reservationList.list)
+            {
+                if (!(reservation.reservationStatus == "reserved" && reservation.firstReservedDay < DateTime.Today && reservation.lastReservedDay < DateTime.Today))
+                {
+                    reservedRooms.Add(reservation.room);
+                }
+            }
+            dgRooms.ItemsSource = reservedRooms;
+            dpContainer.Children.Add(dgRooms);
         }
 
         private void miReservedRooms_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            dpContainer.Children.Clear();
+            List<Room> reservedRooms = new List<Room>();
+            foreach (Reservation reservation in reservationList.list)
+            {
+                if (reservation.reservationStatus == "reserved" && reservation.firstReservedDay < DateTime.Today && reservation.lastReservedDay < DateTime.Today)
+                {
+                    reservedRooms.Add(reservation.room);
+                }
+            }
+            dgRooms.ItemsSource = reservedRooms;
+            dpContainer.Children.Add(dgRooms);
         }
 
         private void miReservations_Click(object sender, RoutedEventArgs e)
@@ -143,14 +166,14 @@ namespace Kikelet_Panzió
         private void miInactiveReservations_Click(object sender, RoutedEventArgs e)
         {
             dpContainer.Children.Clear();
-            dgReservations.ItemsSource = reservationList.list.Where(x => ((Reservation)x).reservationStatus == "Inactive");
+            dgReservations.ItemsSource = reservationList.list.Where(x => ((Reservation)x).reservationStatus == "closed");
             dpContainer.Children.Add(dgReservations);
         }
 
         private void miDeletedReservations_Click(object sender, RoutedEventArgs e)
         {
             dpContainer.Children.Clear();
-            dgReservations.ItemsSource = reservationList.list.Where(x => ((Reservation)x).reservationStatus == "Deleted");
+            dgReservations.ItemsSource = reservationList.list.Where(x => ((Reservation)x).reservationStatus == "deleted");
             dpContainer.Children.Add(dgReservations);
         }
 
@@ -171,6 +194,13 @@ namespace Kikelet_Panzió
             dpContainer.Children.Clear();
             dgGuests.ItemsSource = registeredGuestList.list.Where(x => ((RegisteredGuest)x).vip == true);
             dpContainer.Children.Add(dgGuests);
+        }
+
+        private void miActiveReservations_Click(object sender, RoutedEventArgs e)
+        {
+            dpContainer.Children.Clear();
+            dgReservations.ItemsSource = reservationList.list.Where(x => ((Reservation)x).reservationStatus == "reserved");
+            dpContainer.Children.Add(dgReservations);
         }
     }
 }
