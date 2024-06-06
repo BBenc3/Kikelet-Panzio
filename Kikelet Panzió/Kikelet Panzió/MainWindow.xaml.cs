@@ -14,6 +14,7 @@ namespace Kikelet_Panzió
         internal static RegisteredGuestList registeredGuestList = new RegisteredGuestList();
         internal static RoomList roomList = new RoomList();
         internal static ReservationList reservationList = new ReservationList();
+        internal static bool loggedin = false;
 
         DataGrid dgGuests = new DataGrid()
         {
@@ -43,13 +44,14 @@ namespace Kikelet_Panzió
                     new DataGridTextColumn() { Header = "ID", Binding = new Binding("roomID") { Mode = BindingMode.OneWay }, IsReadOnly = true},
                     new DataGridTextColumn() { Header = "Szoba szám", Binding = new Binding("roomNumber"), IsReadOnly = true},
                     new DataGridTextColumn() { Header = "Férőhely", Binding = new Binding("accommodation"), IsReadOnly = true },
-                    new DataGridTextColumn() { Header = "Ár", Binding = new Binding("price") },
+                    new DataGridTextColumn() { Header = "Ár", Binding = new Binding("price"), IsReadOnly = true},
                 }
         };
         DataGrid dgReservations = new DataGrid()
         {
             ItemsSource = reservationList.list,
             AutoGenerateColumns = false,
+
             Columns =
                 {
                     new DataGridTextColumn { Header = "ID", Binding = new Binding("reservationId"), IsReadOnly = true },
@@ -62,33 +64,51 @@ namespace Kikelet_Panzió
                     new DataGridTextColumn { Header = "Utolsó lefoglalt nap", Binding = new Binding("lastReservedDay") { StringFormat = "yyyy.MM.dd" } },
                     new DataGridTextColumn { Header = "Foglalás időpontja", Binding = new Binding("dateOfReservation") },
                     new DataGridTextColumn { Header = "Foglalás állapota", Binding = new Binding("reservationStatus") }
-
                 }
 
         };
         public MainWindow()
         {
             WindowLogin windowLogin = new WindowLogin();
-
-
             windowLogin.ShowDialog();
+
             InitializeComponent();
+
+            if (!loggedin)
+            {
+                this.Close();
+            }
+
             registeredGuestList.LoadFromDB();
             roomList.LoadFromDB();
             reservationList.LoadFromDB();
-            
-            
+
+
             dpContainer.Children.Add(dgGuests);
+
+            //Működik, de csak miután Entert ütöttünk
+            dgGuests.CellEditEnding += (sender, e) =>
+            {
+                if (e.EditAction == DataGridEditAction.Commit)
+                {
+                    registeredGuestList.UpdateDB(dgGuests.SelectedItem);
+                }
+            };
+            dgReservations.CellEditEnding += (sender, e) =>
+            {
+                if (e.EditAction == DataGridEditAction.Commit)
+                {
+                    reservationList.UpdateDB(dgReservations.SelectedItem);
+                }
+            };
         }
 
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            //registeredGuestList.InsertToDB();
-        }
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            dpContainer.Children.Clear();
+            dgGuests.ItemsSource = registeredGuestList.list.Where(x => ((RegisteredGuest)x).guestName.Contains(tbSearch.Text));
+            dpContainer.Children.Add(dgGuests);
         }
 
         private void miGuestregister_Click(object sender, RoutedEventArgs e)
@@ -130,7 +150,7 @@ namespace Kikelet_Panzió
             List<Room> reservedRooms = new List<Room>();
             foreach (Reservation reservation in reservationList.list)
             {
-                if (!(reservation.reservationStatus == "reserved" && reservation.firstReservedDay < DateTime.Today && reservation.lastReservedDay < DateTime.Today))
+                if (!(reservation.reservationStatus == "Open" && reservation.firstReservedDay < DateTime.Today && reservation.lastReservedDay < DateTime.Today))
                 {
                     reservedRooms.Add(reservation.room);
                 }
@@ -145,18 +165,14 @@ namespace Kikelet_Panzió
             List<Room> reservedRooms = new List<Room>();
             foreach (Reservation reservation in reservationList.list)
             {
-                if (reservation.reservationStatus == "reserved" && reservation.firstReservedDay < DateTime.Today && reservation.lastReservedDay < DateTime.Today)
+                if (reservation.reservationStatus == "Open" && reservation.firstReservedDay < DateTime.Today && reservation.lastReservedDay < DateTime.Today)
                 {
                     reservedRooms.Add(reservation.room);
                 }
             }
             dgRooms.ItemsSource = reservedRooms;
             dpContainer.Children.Add(dgRooms);
-        }
 
-        private void miReservations_Click(object sender, RoutedEventArgs e)
-        {
-            throw new NotImplementedException();
         }
 
         private void miAllReservations_Click(object sender, RoutedEventArgs e)
@@ -169,20 +185,21 @@ namespace Kikelet_Panzió
         private void miInactiveReservations_Click(object sender, RoutedEventArgs e)
         {
             dpContainer.Children.Clear();
-            dgReservations.ItemsSource = reservationList.list.Where(x => ((Reservation)x).reservationStatus == "closed");
+            dgReservations.ItemsSource = reservationList.list.Where(x => ((Reservation)x).reservationStatus == "Closed");
             dpContainer.Children.Add(dgReservations);
         }
 
         private void miDeletedReservations_Click(object sender, RoutedEventArgs e)
         {
             dpContainer.Children.Clear();
-            dgReservations.ItemsSource = reservationList.list.Where(x => ((Reservation)x).reservationStatus == "deleted");
+            dgReservations.ItemsSource = reservationList.list.Where(x => ((Reservation)x).reservationStatus == "Delete");
             dpContainer.Children.Add(dgReservations);
         }
 
         private void miSortByDate_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            spDatePicker.Visibility = Visibility.Visible;
+            spSearch.Visibility = Visibility.Collapsed;
         }
 
         private void miAllGuests_Click(object sender, RoutedEventArgs e)
@@ -202,8 +219,21 @@ namespace Kikelet_Panzió
         private void miActiveReservations_Click(object sender, RoutedEventArgs e)
         {
             dpContainer.Children.Clear();
-            dgReservations.ItemsSource = reservationList.list.Where(x => ((Reservation)x).reservationStatus == "reserved");
+            dgReservations.ItemsSource = reservationList.list.Where(x => ((Reservation)x).reservationStatus == "Open");
             dpContainer.Children.Add(dgReservations);
+        }
+
+        private void btnSearchByDate_Click(object sender, RoutedEventArgs e)
+        {
+            dpContainer.Children.Clear();
+            dgReservations.ItemsSource = reservationList.list.Where(x => ((Reservation)x).firstReservedDay <= Convert.ToDateTime(dpFrom.Text) && ((Reservation)x).lastReservedDay <= Convert.ToDateTime(dpTo.Text));
+            dpContainer.Children.Add(dgReservations);
+        }
+
+        private void MIByName_Click(object sender, RoutedEventArgs e)
+        {
+            spSearch.Visibility = Visibility.Visible;
+            spDatePicker.Visibility = Visibility.Collapsed;
         }
     }
 }

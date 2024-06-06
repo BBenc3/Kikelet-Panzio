@@ -5,7 +5,7 @@ CREATE DATABASE KIKELETPANZIO;
 USE KIKELETPANZIO;
 
 CREATE TABLE RegisteredGuest(
- 	guestId int PRIMARY KEY AUTO_INCREMENT,
+ 	ID int PRIMARY KEY AUTO_INCREMENT,
     guestCode varchar(50) not null,
 	registrationDate datetime DEFAULT CURRENT_DATE,
 	guestName varchar(100) not null,
@@ -20,14 +20,14 @@ CREATE TABLE RegisteredGuest(
 );
 
 CREATE TABLE Room(
-	roomId int PRIMARY KEY AUTO_INCREMENT,
+	ID int PRIMARY KEY AUTO_INCREMENT,
 	roomNumber varchar(10) not null,
  	accommodation int not null,
  	price int not null
 );
 
 CREATE TABLE Reservation(
-	 reservationId INT PRIMARY KEY AUTO_INCREMENT,
+	 ID INT PRIMARY KEY AUTO_INCREMENT,
 	 checkedIn datetime DEFAULT null,
 	 checkedOut datetime DEFAULT null,
 	 guestId int not null, 
@@ -35,9 +35,9 @@ CREATE TABLE Reservation(
 	 dateOfReservation datetime DEFAULT CURRENT_TIMESTAMP,
 	 firstReservedDay date not null,
 	 lastReservedDay date not null,
-     reservationStatust varchar(20) DEFAULT "reserved",
-	 FOREIGN KEY (guestId) REFERENCES RegisteredGuest(guestId),
-	 FOREIGN KEY (roomId) REFERENCES Room(roomId)
+     	 reservationStatust varchar(20) DEFAULT "Open",
+	 FOREIGN KEY (guestId) REFERENCES RegisteredGuest(ID),
+	 FOREIGN KEY (roomId) REFERENCES Room(ID)
  );
  
  INSERT INTO Room(roomNumber, accommodation, price)

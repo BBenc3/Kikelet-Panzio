@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
+using MySqlConnector;
 
 namespace Kikelet_Panzió
 {
@@ -26,8 +15,22 @@ namespace Kikelet_Panzió
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
-            Close();
+            MySqlConnection mySqlConnection = new MySqlConnection($"Server=localhost;Database=kikeletpanzio;Uid={tbName.Text};Pwd={pbPassword.Password};");
+            try
+            {
+                mySqlConnection.Open();
+                MainWindow.loggedin = true;
+                this.Close(); 
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                MainWindow.loggedin = false;
+            }
+            finally
+            {
+                mySqlConnection.Close();
+            }
         }
     }
 }

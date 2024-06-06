@@ -1,8 +1,5 @@
 ﻿using MySqlConnector;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.Diagnostics.Metrics;
-using System.Net;
 using System.Windows;
 
 namespace Kikelet_Panzió
@@ -56,7 +53,6 @@ namespace Kikelet_Panzió
                     {
                         while (rdr.Read())
                         {
-                            //A megfelelő osztályból csinál egy példányt, amit a listához ad
                             list.Add(Activator.CreateInstance(type, rdr));
                         }
                     }
@@ -66,8 +62,6 @@ namespace Kikelet_Panzió
                     MessageBox.Show(ex.Message, "Figyelem!", MessageBoxButton.OK, MessageBoxImage.Error);
                     throw;
                 }
-
-
             }
         }
 
@@ -227,7 +221,7 @@ namespace Kikelet_Panzió
 
         public string GetUpdateString(object obj)
         {
-            return $"UPDATE {table} SET guestCode = \"{((RegisteredGuest)obj).guestCode}\", guestName=\"{((RegisteredGuest)obj).guestName}\", birthDay = \"{((RegisteredGuest)obj).birthDay.ToString("yyyy-MM-dd HH:mm:ss")}\", country = \"{((RegisteredGuest)obj).country}\", postalCode = \"{((RegisteredGuest)obj).postalCode}\", city = \"{((RegisteredGuest)obj).city}\", address = \"{((RegisteredGuest)obj).address}\", email = \"{((RegisteredGuest)obj).email}\", vip = {((RegisteredGuest)obj).vip}, banned = {((RegisteredGuest)obj).banned} WHERE guestID = {((RegisteredGuest)obj).guestId}";
+            return $"UPDATE {table} SET guestCode = \"{((RegisteredGuest)obj).guestCode}\", guestName=\"{((RegisteredGuest)obj).guestName}\", birthDay = \"{((RegisteredGuest)obj).birthDay.ToString("yyyy-MM-dd HH:mm:ss")}\", country = \"{((RegisteredGuest)obj).country}\", postalCode = \"{((RegisteredGuest)obj).postalCode}\", city = \"{((RegisteredGuest)obj).city}\", address = \"{((RegisteredGuest)obj).address}\", email = {(((RegisteredGuest)obj).email == "" ? "null" : $"\"{((RegisteredGuest)obj).email}\"")}, vip = {((RegisteredGuest)obj).vip}, banned = {((RegisteredGuest)obj).banned} WHERE ID = {((RegisteredGuest)obj).guestId}";
         }
     }
 
@@ -236,17 +230,16 @@ namespace Kikelet_Panzió
         public ReservationList()
         {
             table = "reservation";
-
         }
 
         public string GetInsertString(object obj)
         {
-            return $"INSERT INTO reservation (guestID, roomID, firstReservedDay, lastReservedDay, reservationStatus) VALUES ({((Reservation)obj).guestID}, {((Reservation)obj).roomID}, '{((Reservation)obj).firstReservedDay.ToString("yyyy-MM-dd HH:mm:ss")}', '{((Reservation)obj).lastReservedDay.ToString("yyyy-MM-dd HH:mm:ss")}', '{((Reservation)obj).reservationStatus}')"; 
+            return $"INSERT INTO reservation (guestID, roomID, firstReservedDay, lastReservedDay) VALUES ({((Reservation)obj).guestID}, {((Reservation)obj).roomID}, '{((Reservation)obj).firstReservedDay.ToString("yyyy-MM-dd HH:mm:ss")}', '{((Reservation)obj).lastReservedDay.ToString("yyyy-MM-dd HH:mm:ss")}')";
         }
 
         public string GetUpdateString(object obj)
         {
-            return $"UPDATE {table} SET guestID = {((Reservation)obj).guestID}, roomID = {((Reservation)obj).roomID}, firstReservedDay = '{((Reservation)obj).firstReservedDay.ToString("yyyy-MM-dd HH:mm:ss")}', lastReservedDay = '{((Reservation)obj).lastReservedDay.ToString("yyyy-MM-dd HH:mm:ss")}', reservationStatus = '{((Reservation)obj).reservationStatus}' WHERE reservationID = {((Reservation)obj).reservationId}";
+            return $"UPDATE {table} SET guestID = {((Reservation)obj).guestID}, roomID = {((Reservation)obj).roomID}, firstReservedDay = '{((Reservation)obj).firstReservedDay.ToString("yyyy-MM-dd HH:mm:ss")}', lastReservedDay = '{((Reservation)obj).lastReservedDay.ToString("yyyy-MM-dd HH:mm:ss")}', reservationStatus = '{((Reservation)obj).reservationStatus}' WHERE ID = {((Reservation)obj).reservationId}";
         }
     }
 }

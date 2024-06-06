@@ -5,8 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kikelet_Panzió"
         mc:Ignorable="d"
-        Title="MainWindow" Height="auto" Width="auto"
-        Closing="Window_Closing">
+        Title="MainWindow" Height="auto" Width="auto">
     <Window.Resources>
         <Style x:Key="Searchbar" TargetType="StackPanel">
             <Setter Property="Orientation" Value="Horizontal"/>
@@ -30,8 +29,9 @@
             <MenuItem Header="Szűrés">
                 <MenuItem Header="Vendégek" Name="miGuests">
                     <MenuItem Header="Összes" Name="miAllGuests" Click="miAllGuests_Click"/>
+                    <MenuItem Header="Név alapján" Name="MIByName" Click="MIByName_Click"/>
                     <MenuItem Header="VIP" Name="miVIP" Click="miVIP_Click" />
-                    <MenuItem Header="Banned" Name="miBanned" Click="miBanned_Click" />
+                    <MenuItem Header="Tiltva" Name="miBanned" Click="miBanned_Click" />
                 </MenuItem>
                 <MenuItem Header="Szobák" Name="miRooms">
                     <MenuItem Header="Összes" Name="miAllRooms" Click="miAllRooms_Click" />
@@ -49,10 +49,21 @@
             <MenuItem Header="Statisztikák" Name="miStatistics" Click="miStatistics_Click"/>
         </Menu>
         <StackPanel x:Name="spSearchbar" Style="{StaticResource Searchbar}">
-            <StackPanel Style="{StaticResource innerSp}">
+            <StackPanel Name="spSearch" Style="{StaticResource innerSp}">
                 <TextBlock Text="Keresés:"/>
                 <TextBox x:Name="tbSearch"/>
                 <Button x:Name="btnSearch" Content="Keresés" Click="btnSearch_Click"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Name="spDatePicker" Visibility="Collapsed">
+                <StackPanel>
+                    <Label>-Tól</Label>
+                    <DatePicker Name="dpFrom"/>
+                </StackPanel>
+                <StackPanel>
+                    <Label>-Ig</Label>
+                    <DatePicker Name="dpTo"/>
+                </StackPanel>
+                <Button Content="Keresés" Name="btnSearchByDate" Click="btnSearchByDate_Click"/>
             </StackPanel>
             
         </StackPanel>

@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text.RegularExpressions;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Kikelet_Panzió
 {
@@ -26,23 +15,32 @@ namespace Kikelet_Panzió
 
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
-            if (tbName.Text != "" && dpBirth.Text != "" && tbCountry.Text != "" && tbCity.Text !="" && tbZip.Text != "" && tbAddress.Text !="")
+            if (tbName.Text != "" && dpBirth.Text != "" && tbCountry.Text != "" && tbCity.Text != "" && tbZip.Text != "" && tbAddress.Text != "")
             {
-                var obj = new RegisteredGuest(tbName.Text, Convert.ToDateTime(dpBirth.Text), tbCountry.Text, tbZip.Text, tbCity.Text, tbAddress.Text, tbEmail.Text, (bool)cbVIP.IsChecked, (bool)cbBanned.IsChecked);
-                try
+                string emailPattern = @"^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$";
+                if (!Regex.IsMatch(tbEmail.Text, emailPattern))
                 {
-                    MainWindow.registeredGuestList.InsertToDB(obj);
-                    MainWindow.registeredGuestList.GetLastFromDB();
-                    this.Close();
+                    MessageBox.Show("Nem megfelelő email.");
+                    tbEmail.Focus();
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show(ex.Message);
+                    var obj = new RegisteredGuest(tbName.Text, Convert.ToDateTime(dpBirth.Text), tbCountry.Text, tbZip.Text, tbCity.Text, tbAddress.Text, tbEmail.Text, (bool)cbVIP.IsChecked, (bool)cbBanned.IsChecked);
+                    try
+                    {
+                        MainWindow.registeredGuestList.InsertToDB(obj);
+                        MainWindow.registeredGuestList.GetLastFromDB();
+                        this.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                 }
 
-                
             }
-            
+
         }
+
     }
 }
