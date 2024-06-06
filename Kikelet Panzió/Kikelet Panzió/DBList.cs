@@ -9,15 +9,12 @@ namespace Kikelet_Panzió
 {
     internal class DBList
     {
+        public ObservableCollection<object> list { get; }
         internal string username { get; set; }
         internal string password { get; set; }
-        public ObservableCollection<object> list { get; }
         protected string database;
         protected string table;
         protected string conString;
-        protected string insertString; 
-        protected string updateString;
-        protected object obj;
 
         private static readonly Dictionary<string, Type> tableTypes = new Dictionary<string, Type>
         {
@@ -79,25 +76,42 @@ namespace Kikelet_Panzió
         /// </summary>
         /// <param name="obj"></param>
         /// <exception cref="ArgumentException"></exception>
-        public void InsertToDB(Object obj)
+        public void InsertToDB(object obj)
         {
-            this.obj = obj;
+            string insertString = "";
+
+            switch (table)
+            {
+                case "reservation":
+                    insertString = ((ReservationList)this).GetInsertString(obj);
+                    break;
+                case "RegisteredGuest":
+                    insertString = ((RegisteredGuestList)this).GetInsertString(obj);
+                    break;
+            }
+
             if (!tableTypes.ContainsKey(table))
             {
                 throw new ArgumentException("Nem létező tábla");
             }
             Type type = tableTypes[table];
 
-            using (MySqlConnection connection = new MySqlConnection(conString))
+            try
             {
-                connection.Open();
-                string sqlCmd = insertString + $"({obj.ToString()})";
-                using (MySqlCommand mSqlcmd = new MySqlCommand(sqlCmd, connection))
+                using (MySqlConnection connection = new MySqlConnection(conString))
                 {
-                    mSqlcmd.ExecuteNonQuery();
+                    connection.Open();
+                    string sqlCmd = insertString;
+                    using (MySqlCommand mSqlcmd = new MySqlCommand(sqlCmd, connection))
+                    {
+                        mSqlcmd.ExecuteNonQuery();
+                    }
                 }
             }
-            this.obj = null;
+            catch (MySqlException)
+            {
+                throw new Exception("Hiba az adatbázisba való beszúrás során");
+            }
         }
 
         /// <summary>
@@ -111,12 +125,11 @@ namespace Kikelet_Panzió
                 throw new ArgumentException("Nem létező tábla");
             }
             Type type = tableTypes[table];
-            list.Clear();
 
             using (MySqlConnection connection = new MySqlConnection(conString))
             {
                 connection.Open();
-                string sqlCmd = $"SELECT * FROM {table} ORDER BY {table}Id DESC LIMIT 1";
+                string sqlCmd = $"SELECT * FROM {table} ORDER BY ID DESC LIMIT 1";
                 using (MySqlCommand mSqlcmd = new MySqlCommand(sqlCmd, connection))
                 using (MySqlDataReader rdr = mSqlcmd.ExecuteReader())
                 {
@@ -132,9 +145,19 @@ namespace Kikelet_Panzió
         /// A kapott objektumot módosítja az adatbázisban
         /// </summary>
         /// <param name="obj"></param>
-        public void UpdateDB(Object obj)
+        public void UpdateDB(object obj)
         {
-            this.obj = obj;
+            string updateString = "";
+
+            switch (table)
+            {
+                case "reservation":
+                    updateString = ((ReservationList)this).GetUpdateString(obj);
+                    break;
+                case "RegisteredGuest":
+                    updateString = ((RegisteredGuestList)this).GetUpdateString(obj);
+                    break;
+            }
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(conString))
@@ -151,10 +174,6 @@ namespace Kikelet_Panzió
             {
                 MessageBox.Show(ex.Message, "Figyelem!", MessageBoxButton.OK, MessageBoxImage.Error);
                 throw;
-            }
-            finally
-            {
-                this.obj = null;
             }
         }
 
@@ -190,12 +209,7 @@ namespace Kikelet_Panzió
     {
         public RoomList()
         {
-            obj = new Room(0, "Room1", 1, 100);
             table = "room";
-
-            insertString = $"INSERT INTO Room (roomNumber, accommodation, price) VALUES \"{((Room)obj).roomNumber}\", {((Room)obj).accommodation}, {((Room)obj).price}";
-
-            updateString = $"UPDATE {table} SET roomNumber = \"{((Room)obj).roomNumber}\", accommodation = {((Room)obj).accommodation}, price = {((Room)obj).price} WHERE roomId = {((Room)obj).roomId}";
         }
     }
 
@@ -203,12 +217,17 @@ namespace Kikelet_Panzió
     {
         public RegisteredGuestList()
         {
-            obj = new RegisteredGuest("guestCode1", "John Doe", DateTime.Now, "USA", "10001", "New York", "123 Street", "johndoe@example.com", false, false);
             table = "RegisteredGuest";
+        }
 
-            insertString = $"INSERT INTO RegisteredGuest (guestCode, guestName, birthDay, country, postalCode, city, address, email, vip, banned) VALUES \"{((RegisteredGuest)obj).guestCode}\" ,\"{((RegisteredGuest)obj).guestName}\", \"{((RegisteredGuest)obj).birthDay}\", \"{((RegisteredGuest)obj).country}\", \"{((RegisteredGuest)obj).postalCode}\", \"{((RegisteredGuest)obj).city}\", \"{((RegisteredGuest)obj).address}\", \"{((RegisteredGuest)obj).email}\", {((RegisteredGuest)obj).vip}, {((RegisteredGuest)obj).banned}";
+        public string GetInsertString(object obj)
+        {
+            return $"INSERT INTO RegisteredGuest (guestCode, guestName, birthDay, country, postalCode, city, address, email, vip, banned) VALUES (\"{((RegisteredGuest)obj).guestCode}\" ,\"{((RegisteredGuest)obj).guestName}\", \"{((RegisteredGuest)obj).birthDay.ToString("yyyy-MM-dd HH:mm:ss")}\", \"{((RegisteredGuest)obj).country}\", \"{((RegisteredGuest)obj).postalCode}\", \"{((RegisteredGuest)obj).city}\", \"{((RegisteredGuest)obj).address}\", \"{((RegisteredGuest)obj).email}\", {((RegisteredGuest)obj).vip}, {((RegisteredGuest)obj).banned})";
+        }
 
-            updateString = $"UPDATE {table} SET guestCode = \"{((RegisteredGuest)obj).guestCode}\", guestName=\"{((RegisteredGuest)obj).guestName}\", birthDay = \"{((RegisteredGuest)obj).birthDay}\", country = \"{((RegisteredGuest)obj).country}\", postalCode = \"{((RegisteredGuest)obj).postalCode}\", city = \"{((RegisteredGuest)obj).city}\", address = \"{((RegisteredGuest)obj).address}\", email = \"{((RegisteredGuest)obj).email}\", vip = {((RegisteredGuest)obj).vip}, banned = {((RegisteredGuest)obj).banned} WHERE guestId = {((RegisteredGuest)obj).guestId}";
+        public string GetUpdateString(object obj)
+        {
+            return $"UPDATE {table} SET guestCode = \"{((RegisteredGuest)obj).guestCode}\", guestName=\"{((RegisteredGuest)obj).guestName}\", birthDay = \"{((RegisteredGuest)obj).birthDay.ToString("yyyy-MM-dd HH:mm:ss")}\", country = \"{((RegisteredGuest)obj).country}\", postalCode = \"{((RegisteredGuest)obj).postalCode}\", city = \"{((RegisteredGuest)obj).city}\", address = \"{((RegisteredGuest)obj).address}\", email = \"{((RegisteredGuest)obj).email}\", vip = {((RegisteredGuest)obj).vip}, banned = {((RegisteredGuest)obj).banned} WHERE guestID = {((RegisteredGuest)obj).guestId}";
         }
     }
 
@@ -216,12 +235,18 @@ namespace Kikelet_Panzió
     {
         public ReservationList()
         {
-            obj = new Reservation(DateTime.Now, DateTime.Now, 1, 1, DateTime.Now, DateTime.Now.AddDays(7), "Confirmed");
             table = "reservation";
 
-            insertString = $"INSERT INTO Reservation (checkedIn, checkedOut, guestId, roomId, firstReservedDay, lastReservedDay, reservationStatus) VALUES\"{((Reservation)obj).checkedIn}\", \"{((Reservation)obj).checkedOut}\", {((Reservation)obj).guestId}, {((Reservation)obj).roomId}, \"{((Reservation)obj).firstReservedDay}\", \"{((Reservation)obj).lastReservedDay}\", \"{((Reservation)obj).reservationStatus}\"";
+        }
 
-            updateString = $"UPDATE {table} SET checkedIn={((Reservation)obj).checkedIn}, checkedOut={((Reservation)obj).checkedOut}, guestId={((Reservation)obj).guestId}, roomId={((Reservation)obj).roomId}, firstReservedDay={((Reservation)obj).firstReservedDay}, lastReservedDay={((Reservation)obj).lastReservedDay}, reservationStatust={((Reservation)obj).reservationStatus} WHERE reservationId = {((Reservation)obj).reservationId}";
+        public string GetInsertString(object obj)
+        {
+            return $"INSERT INTO reservation (guestID, roomID, firstReservedDay, lastReservedDay, reservationStatus) VALUES ({((Reservation)obj).guestID}, {((Reservation)obj).roomID}, '{((Reservation)obj).firstReservedDay.ToString("yyyy-MM-dd HH:mm:ss")}', '{((Reservation)obj).lastReservedDay.ToString("yyyy-MM-dd HH:mm:ss")}', '{((Reservation)obj).reservationStatus}')"; 
+        }
+
+        public string GetUpdateString(object obj)
+        {
+            return $"UPDATE {table} SET guestID = {((Reservation)obj).guestID}, roomID = {((Reservation)obj).roomID}, firstReservedDay = '{((Reservation)obj).firstReservedDay.ToString("yyyy-MM-dd HH:mm:ss")}', lastReservedDay = '{((Reservation)obj).lastReservedDay.ToString("yyyy-MM-dd HH:mm:ss")}', reservationStatus = '{((Reservation)obj).reservationStatus}' WHERE reservationID = {((Reservation)obj).reservationId}";
         }
     }
 }

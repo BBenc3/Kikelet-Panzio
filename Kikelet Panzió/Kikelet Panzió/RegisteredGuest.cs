@@ -38,7 +38,7 @@ namespace Kikelet_Panzió
         }
 
         //A konstruktor paramétereit közvetlenül el kell küldeni az adatbnek (kidolgozni)
-        public RegisteredGuest(string guestCode, string guestName, DateTime birthDay, string country, string postalCode, string city, string address, string email, bool vip, bool banned)
+        public RegisteredGuest(string guestName, DateTime birthDay, string country, string postalCode, string city, string address, string email, bool vip, bool banned)
         {
             this.guestCode = guestName + registrationDate.ToString("yyyyMMdd"); ;
             this.guestName = guestName;

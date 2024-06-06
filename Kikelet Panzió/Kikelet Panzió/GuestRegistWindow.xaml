@@ -1,0 +1,45 @@
+﻿<Window x:Class="Kikelet_Panzió.GuestRegistWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kikelet_Panzió"
+        mc:Ignorable="d"
+        Title="GuestRegistWindow" Height="450" Width="800">
+    <StackPanel>
+        <Label>Vendég regisztrálása</Label>
+        <StackPanel>
+            <Label>Név:</Label>
+            <TextBox x:Name="tbName"/>
+        </StackPanel>
+        <StackPanel>
+            <Label>Születési dátum:</Label>
+            <DatePicker x:Name="dpBirth"/>
+        </StackPanel>
+        <StackPanel>
+            <Label>E-mail cím</Label>
+            <TextBox x:Name="tbEmail"/>
+        </StackPanel>
+        <StackPanel>
+            <Label>Ország</Label>
+            <TextBox x:Name="tbCountry"/>
+        </StackPanel>
+        <StackPanel>
+            <Label>Irányító szám</Label>
+            <TextBox x:Name="tbZip"/>
+        </StackPanel>
+        <StackPanel>
+            <Label>Város</Label>
+            <TextBox x:Name="tbCity"/>
+        </StackPanel>
+        <StackPanel>
+            <Label>Cím</Label>
+            <TextBox x:Name="tbAddress"/>
+        </StackPanel>
+        <StackPanel>
+            <CheckBox x:Name="cbVIP" Content="VIP"/>
+            <CheckBox x:Name="cbBanned" Content="Banned"/>
+        </StackPanel>
+        <Button x:Name="btnRegister" Content="Regisztrálás" Click="btnRegister_Click"/>
+    </StackPanel>
+</Window>

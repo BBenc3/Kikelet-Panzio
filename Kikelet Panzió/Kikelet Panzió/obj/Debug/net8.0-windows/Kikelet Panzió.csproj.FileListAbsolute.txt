@@ -62,3 +62,7 @@ C:\Users\bence\source\repos\BBenc3\Kikelet-Panzio\Kikelet Panzió\Kikelet Panzi�
 C:\Users\bence\source\repos\BBenc3\Kikelet-Panzio\Kikelet Panzió\Kikelet Panzió\obj\Debug\net8.0-windows\ref\Kikelet Panzió.dll
 C:\Users\bence\source\repos\BBenc3\Kikelet-Panzio\Kikelet Panzió\Kikelet Panzió\obj\Debug\net8.0-windows\WindowLogin.g.cs
 C:\Users\bence\source\repos\BBenc3\Kikelet-Panzio\Kikelet Panzió\Kikelet Panzió\obj\Debug\net8.0-windows\WindowLogin.baml
+C:\Users\bence\source\repos\BBenc3\Kikelet-Panzio\Kikelet Panzió\Kikelet Panzió\obj\Debug\net8.0-windows\ReservationWindow.g.cs
+C:\Users\bence\source\repos\BBenc3\Kikelet-Panzio\Kikelet Panzió\Kikelet Panzió\obj\Debug\net8.0-windows\ReservationWindow.baml
+C:\Users\bence\source\repos\BBenc3\Kikelet-Panzio\Kikelet Panzió\Kikelet Panzió\obj\Debug\net8.0-windows\GuestRegistWindow.g.cs
+C:\Users\bence\source\repos\BBenc3\Kikelet-Panzio\Kikelet Panzió\Kikelet Panzió\obj\Debug\net8.0-windows\GuestRegistWindow.baml

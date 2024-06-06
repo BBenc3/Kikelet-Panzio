@@ -8,9 +8,9 @@
         Title="ReservationWindow" Height="450" Width="800">
     <StackPanel>
         <TextBlock Text="Vendég:"/>
-        <ComboBox x:Name="cbGuest"/>
+        <ComboBox x:Name="cbGuest" ItemsSource="{Binding registeredGuestList}" SelectedIndex="0"/>
         <TextBlock Text="Szoba:"/>
-        <ComboBox x:Name="cbRoom"/>
+        <ComboBox x:Name="cbRoom" SelectedIndex="0"/>
         <TextBlock Text="-Tól"/>
         <DatePicker x:Name="dpFrom"/>
         <TextBlock Text="-ig"/>

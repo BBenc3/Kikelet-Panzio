@@ -40,7 +40,7 @@ namespace Kikelet_Panzió
             AutoGenerateColumns = false,
             Columns =
                 {
-                    new DataGridTextColumn() { Header = "ID", Binding = new Binding("roomId") { Mode = BindingMode.OneWay }, IsReadOnly = true},
+                    new DataGridTextColumn() { Header = "ID", Binding = new Binding("roomID") { Mode = BindingMode.OneWay }, IsReadOnly = true},
                     new DataGridTextColumn() { Header = "Szoba szám", Binding = new Binding("roomNumber"), IsReadOnly = true},
                     new DataGridTextColumn() { Header = "Férőhely", Binding = new Binding("accommodation"), IsReadOnly = true },
                     new DataGridTextColumn() { Header = "Ár", Binding = new Binding("price") },
@@ -69,6 +69,8 @@ namespace Kikelet_Panzió
         public MainWindow()
         {
             WindowLogin windowLogin = new WindowLogin();
+
+
             windowLogin.ShowDialog();
             InitializeComponent();
             registeredGuestList.LoadFromDB();
@@ -91,15 +93,16 @@ namespace Kikelet_Panzió
 
         private void miGuestregister_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            GuestRegistWindow guestRegistWindow = new GuestRegistWindow();
+            guestRegistWindow.ShowDialog();
+            dgGuests.Items.Refresh();
         }
 
         private void miReservation_Click(object sender, RoutedEventArgs e)
         {
             ReservationWindow reservationWindow = new ReservationWindow();
             reservationWindow.ShowDialog();
-            reservationList.InsertToDB(); //No worky work, kéne neki obj
-
+            dgReservations.Items.Refresh();
         }
 
         private void miStatistics_Click(object sender, RoutedEventArgs e)
